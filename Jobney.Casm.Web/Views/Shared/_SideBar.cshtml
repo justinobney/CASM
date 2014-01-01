@@ -1,8 +1,7 @@
 ﻿<aside class="@ViewBag.Skin fixed">
     <div class="brand">
         <a href="@Url.Action("Index", "Home")">
-            <span>Endless</span>
-            <span class="text-toggle"> Admin</span>
+            <span>C.A.S.M</span>
         </a>
     </div><!-- /brand -->
     <div class="sidebar-inner">
@@ -28,12 +27,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="@Url.Action("About", "Home")" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="@Url.Action("About", "Home")">
+                        <span class="menu-icon">
+                            <i class="fa fa-question-circle fa-lg"></i>
+                        </span>
+                        <span class="text">
+                            About
+                        </span>
+                        <span class="menu-hover"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="menu-icon">
                             <i class="fa fa-tag fa-lg"></i>
                         </span>
                         <span class="text">
-                            About
+                            Misc
                         </span>
                         <span class="badge pull-right">9</span>
                         <span class="menu-hover"></span>

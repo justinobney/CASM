@@ -20,8 +20,7 @@
     <!-- Overlay Div -->
     @Html.Partial("_Overlay")
 
-    <div id="wrapper" class="preload">
-        <!-- sidebar-mini -->
+    <div id="wrapper" class="sidebar-mini">
         @Html.Partial("_TopNav")
         @Html.Partial("_SideBar")
 
@@ -33,7 +32,9 @@
                     <li class="active">Blank page</li>
                 </ul>
             </div><!-- breadcrumb -->
-            @RenderBody()
+            <div class="padding-md">
+                @RenderBody()
+            </div>
         </div><!-- /main-container -->
     </div><!-- /wrapper -->
     <!-- Le javascript
