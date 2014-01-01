@@ -1,6 +1,108 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Simple Widget
+
+                <ul class="panel-toolbar">
+                    <li>
+                        <a class="collapse-toggle"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, viverra a dui a, gravida varius velit. Nunc vel tempor nisi. Aenean id pellentesque mi, non placerat mi. Integer luctus accumsan tellus. Vivamus quis elit sit amet nibh lacinia suscipit eu quis purus. Vivamus tristique est non ipsum dapibus lacinia sed nec metus.
+            </div>
+        </div><!-- /panel -->
+        <div class="panel panel-default">
+            <div class="panel-body p-top-sm">
+                <div class="inline-block m-top-xs">
+                    <span class="badge badge-danger">4321</span><strong class="m-left-xs m-right-sm"> Visits</strong>
+                </div>
+                <div class="inline-block m-top-xs">
+                    <span class="badge badge-success">5190</span><strong class="m-left-xs m-right-sm"> Sales</strong>
+                </div>
+                <div class="inline-block m-top-xs">
+                    <span class="badge badge-info">8123</span><strong class="m-left-xs m-right-sm"> Orders</strong>
+                </div>
+                <div class="inline-block m-top-xs">
+                    <span class="badge badge-warning">2351</span><strong class="m-left-xs m-right-sm"> Users</strong>
+                </div>
+            </div>
+        </div><!-- /panel -->
+    </div><!-- /.col -->
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Task
+                <span class="badge badge-info pull-right">
+                    4 left
+                </span>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Progress</th>
+                        <th></th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bug Fixes</td>
+                        <td>
+                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
+                                <div class="progress-bar" style="width: 45%">
+                                    <span class="sr-only">45% Complete</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>45%</td>
+                        <td><span class="badge badge-info">2hr</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mobile Development</td>
+                        <td>
+                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
+                                <div class="progress-bar progress-bar-success" style="width: 61%">
+                                    <span class="sr-only">61% Complete</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>61%</td>
+                        <td><span class="badge badge-info">1hr</span></td>
+                    </tr>
+                    <tr>
+                        <td>Unit Testing</td>
+                        <td>
+                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
+                                <div class="progress-bar progress-bar-danger" style="width: 97%">
+                                    <span class="sr-only">97% Complete</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>97%</td>
+                        <td><span class="badge badge-info">5m</span></td>
+                    </tr>
+                    <tr>
+                        <td>New Frontend Layout</td>
+                        <td>
+                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
+                                <div class="progress-bar progress-bar-warning" style="width: 18%">
+                                    <span class="sr-only">18% Complete</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>18%</td>
+                        <td><span class="badge badge-info">12hr</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- /panel -->
+    </div><!-- /.col-->
+</div>
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
