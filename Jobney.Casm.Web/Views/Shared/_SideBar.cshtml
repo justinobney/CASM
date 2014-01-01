@@ -1,0 +1,62 @@
+﻿<aside class="@ViewBag.Skin fixed">
+    <div class="brand">
+        <a href="@Url.Action("Index", "Home")">
+            <span>Endless</span>
+            <span class="text-toggle"> Admin</span>
+        </a>
+    </div><!-- /brand -->
+    <div class="sidebar-inner">
+        <div class="size-toggle">
+            <a class="btn btn-sm" id="sizeToggle">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        </div><!-- /size-toggle -->
+
+        <div class="main-menu">
+            <ul>
+                <li class="active">
+                    <a href="@Url.Action("Index", "Home")">
+                        <span class="menu-icon">
+                            <i class="fa fa-desktop fa-lg"></i>
+                        </span>
+                        <span class="text">
+                            Home
+                        </span>
+                        <span class="menu-hover"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("About", "Home")" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="menu-icon">
+                            <i class="fa fa-tag fa-lg"></i>
+                        </span>
+                        <span class="text">
+                            About
+                        </span>
+                        <span class="badge pull-right">9</span>
+                        <span class="menu-hover"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="ui_element.html">
+                                UI Features
+                            </a>
+                        </li>
+                        <li>
+                            <a href="button.html">
+                                Button & Icons
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tab.html">
+                                Tab
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /main-menu -->
+    </div><!-- /sidebar-inner -->
+</aside>

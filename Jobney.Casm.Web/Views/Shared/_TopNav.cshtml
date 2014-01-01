@@ -1,0 +1,88 @@
+﻿<div id="top-nav" class="@ViewBag.Skin fixed">
+    <button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <ul class="nav-notification clearfix">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-envelope fa-lg"></i>
+                <span class="notification-label">7</span>
+            </a>
+            <ul class="dropdown-menu message dropdown-1">
+                <li><a>You have 4 new unread messages</a></li>
+                <li>
+                    <a class="clearfix" href="#">
+                        <img src="img/user.jpg" alt="User Avatar">
+                        <div class="detail">
+                            <strong>John Doe</strong>
+                            <p class="no-margin">
+                                Lorem ipsum dolor sit amet...
+                            </p>
+                            <small class="text-muted"><i class="fa fa-check text-success"></i> 27m ago</small>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="clearfix" href="#">
+                        <img src="img/user2.jpg" alt="User Avatar">
+                        <div class="detail">
+                            <strong>Jane Doe</strong>
+                            <p class="no-margin">
+                                Lorem ipsum dolor sit amet...
+                            </p>
+                            <small class="text-muted"><i class="fa fa-check text-success"></i> 5hr ago</small>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="clearfix" href="#">
+                        <img src="img/user.jpg" alt="User Avatar">
+                        <div class="detail">
+                            <strong>Bill Doe</strong>
+                            <p class="no-margin">
+                                Lorem ipsum dolor sit amet...
+                            </p>
+                            <small class="text-muted"><i class="fa fa-reply"></i> Yesterday</small>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="clearfix" href="#">
+                        <img src="img/user2.jpg" alt="User Avatar">
+                        <div class="detail">
+                            <strong>Baby Doe</strong>
+                            <p class="no-margin">
+                                Lorem ipsum dolor sit amet...
+                            </p>
+                            <small class="text-muted"><i class="fa fa-reply"></i> 9 Feb 2013</small>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="#">View all messages</a></li>
+            </ul>
+        </li>
+        <li class="profile dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <strong>John Doe</strong>
+                <span><i class="fa fa-chevron-down"></i></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="clearfix" href="#">
+                        <img src="img/user.jpg" alt="User Avatar">
+                        <div class="detail">
+                            <strong>John Doe</strong>
+                            <p class="grey">John_Doe@email.com</p>
+                        </div>
+                    </a>
+                </li>
+                @Html.Partial("_LoginPartial")
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="login.html" class="main-link"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /top-nav-->
