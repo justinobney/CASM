@@ -2,8 +2,23 @@
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Simple Widget
-
+                Calendar Legend
+            </div>
+            <div class="panel-body p-top-sm">
+                <div class="m-top-xs">
+                    4 - <span class="label label-primary">Citation</span>
+                </div>
+                <div class="m-top-xs">
+                    1 - <span class="label label-info">Super King Air</span>
+                </div>
+                <div class="m-top-xs">
+                    3 - <span class="label label-danger">Maintenance</span>
+                </div>
+            </div>
+        </div><!-- /panel -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Add Trip
                 <ul class="panel-toolbar">
                     <li>
                         <a class="collapse-toggle"><i class="fa fa-chevron-up"></i></a>
@@ -11,23 +26,22 @@
                 </ul>
             </div>
             <div class="panel-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros nibh, viverra a dui a, gravida varius velit. Nunc vel tempor nisi. Aenean id pellentesque mi, non placerat mi. Integer luctus accumsan tellus. Vivamus quis elit sit amet nibh lacinia suscipit eu quis purus. Vivamus tristique est non ipsum dapibus lacinia sed nec metus.
-            </div>
-        </div><!-- /panel -->
-        <div class="panel panel-default">
-            <div class="panel-body p-top-sm">
-                <div class="inline-block m-top-xs">
-                    <span class="badge badge-danger">4321</span><strong class="m-left-xs m-right-sm"> Visits</strong>
+                <div class="form-group">
+                    <label for="NewTripDate">Date</label>
+                    <input type="text" class="form-control input-sm" id="NewTripDate" placeholder="Trip Date">
                 </div>
-                <div class="inline-block m-top-xs">
-                    <span class="badge badge-success">5190</span><strong class="m-left-xs m-right-sm"> Sales</strong>
+                <div class="form-group">
+                    <label for="NewTripTitle">Title</label>
+                    <input type="text" class="form-control input-sm" id="NewTripTitle" placeholder="Appears On Calendar">
                 </div>
-                <div class="inline-block m-top-xs">
-                    <span class="badge badge-info">8123</span><strong class="m-left-xs m-right-sm"> Orders</strong>
+                <div class="form-group">
+                    <label for="NewTripAirplane">Airplane</label>
+                    <select id="NewTripAirplane" class="form-control input-sm">
+                        <option>Citation</option>
+                        <option>Super King Air</option>
+                    </select>
                 </div>
-                <div class="inline-block m-top-xs">
-                    <span class="badge badge-warning">2351</span><strong class="m-left-xs m-right-sm"> Users</strong>
-                </div>
+                <button class="btn btn-block btn-primary">Add Trip</button>
             </div>
         </div><!-- /panel -->
     </div><!-- /.col -->
@@ -52,85 +66,85 @@
 {
     @Scripts.Render("~/bundles/fullcalendar")
     <script>
-    $(function () {
+        $(function () {
 
-        // Full calendar
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
+            // Full calendar
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
 
-        var calendar = $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            selectable: true,
-            selectHelper: true,
-            select: function (start, end, allDay) {
-                var title = prompt('Event Title:');
-                if (title) {
-                    calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        },
-                        true // make the event "stick"
-                    );
-                }
-                calendar.fullCalendar('unselect');
-            },
-            editable: true,
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: new Date(y, m, 1)
+            var calendar = $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
                 },
-                {
-                    title: 'Long Event',
-                    start: new Date(y, m, d - 5),
-                    end: new Date(y, m, d - 2)
+                selectable: true,
+                selectHelper: true,
+                select: function (start, end, allDay) {
+                    var title = prompt('Event Title:');
+                    if (title) {
+                        calendar.fullCalendar('renderEvent',
+                            {
+                                title: title,
+                                start: start,
+                                end: end,
+                                allDay: allDay
+                            },
+                            true // make the event "stick"
+                        );
+                    }
+                    calendar.fullCalendar('unselect');
                 },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d - 3, 16, 0),
-                    allDay: false
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: new Date(y, m, d + 4, 16, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
-                    allDay: false
-                },
-                {
-                    title: 'Birthday Party',
-                    start: new Date(y, m, d + 1, 19, 0),
-                    end: new Date(y, m, d + 1, 22, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 28),
-                    url: 'http://google.com/'
-                }
-            ]
+                editable: true,
+                events: [
+                    {
+                        title: 'All Day Event',
+                        start: new Date(y, m, 1)
+                    },
+                    {
+                        title: 'Long Event',
+                        start: new Date(y, m, d - 5),
+                        end: new Date(y, m, d - 2)
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: new Date(y, m, d - 3, 16, 0),
+                        allDay: false
+                    },
+                    {
+                        id: 999,
+                        title: 'Repeating Event',
+                        start: new Date(y, m, d + 4, 16, 0),
+                        allDay: false
+                    },
+                    {
+                        title: 'Meeting',
+                        start: new Date(y, m, d, 10, 30),
+                        allDay: false
+                    },
+                    {
+                        title: 'Lunch',
+                        start: new Date(y, m, d, 12, 0),
+                        end: new Date(y, m, d, 14, 0),
+                        allDay: false
+                    },
+                    {
+                        title: 'Birthday Party',
+                        start: new Date(y, m, d + 1, 19, 0),
+                        end: new Date(y, m, d + 1, 22, 30),
+                        allDay: false
+                    },
+                    {
+                        title: 'Click for Google',
+                        start: new Date(y, m, 28),
+                        end: new Date(y, m, 28),
+                        url: 'http://google.com/'
+                    }
+                ]
+            });
         });
-    });
-</script>
+    </script>
 }

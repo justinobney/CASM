@@ -36,8 +36,7 @@ namespace Jobney.Casm.Web
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/css/fullcalendar").Include(
-                      "~/Content/fullcalendar.css",
-                      "~/Content/fullcalendar.print.css"
+                      "~/Content/fullcalendar.css"
                       ));
         }
     }
