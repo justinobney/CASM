@@ -29,3 +29,12 @@ input[type="checkbox"].input-validation-error {
     -ms-box-shadow: 0 0 3px 0 #FFF;
     box-shadow: 0 0 3px 0 #FFF;
 }
+
+.dropdown-menu li a:hover, .dropdown-menu li a:focus {
+    background: #68010B;
+    color: #FFF;
+}
+
+.brand a {
+    color: #FFF;
+}

@@ -2,9 +2,8 @@ aside.skin-1 {
   background: #efefef;
 }
 aside.skin-1 .brand {
-  background: #3c8dbc;
   color: #fff;
-  border-bottom-color: #3b89b6;
+  background: #84000D;  border-bottom-color: #75000C;
 }
 aside.skin-1 .size-toggle {
   border-bottom-color: #dfdfdf;
@@ -71,14 +70,14 @@ aside.skin-1 .main-menu > ul > li > a:focus {
   background: #f9f9f9;
 }
 aside.skin-1 .main-menu > ul > li > a .menu-hover {
-  background: #3c8dbc;
-  box-shadow: 0 0 10px 0px #439bce;
+  box-shadow: 0 0 10px 0px #84000D;
   -moz-box-shadow: 0 0 10px 0px #439bce;
-  -webkit-box-shadow: 0 0 10px 0px #439bce;
+  -webkit-box-shadow: 0 0 10px 0px #84000D;
+  background: #84000D;  
 }
 #top-nav.skin-1 {
-  background: #3c8dbc;
-  border-bottom-color: #3b89b6;
+  background: #84000d;
+  border-bottom-color: #75000C;
 }
 #top-nav.skin-1 .navbar-toggle .icon-bar {
   background-color: #fff;
@@ -87,10 +86,10 @@ aside.skin-1 .main-menu > ul > li > a .menu-hover {
   color: #c3e3f5;
 }
 #top-nav.skin-1 .nav-notification > li.open {
-  background: #3b89b6;
+  background: #84000D;
 }
 #top-nav.skin-1 .nav-notification > li:hover {
-  background: #3b89b6;
+  background: #68010B;
 }
 #top-nav.skin-1 .nav-notification > li > a {
   color: #c3e3f5;
