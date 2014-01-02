@@ -1,5 +1,5 @@
 ﻿<div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Simple Widget
@@ -31,103 +31,106 @@
             </div>
         </div><!-- /panel -->
     </div><!-- /.col -->
-    <div class="col-md-6">
+    <div class="col-md-9">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Task
-                <span class="badge badge-info pull-right">
-                    4 left
-                </span>
+                <i class="fa fa-calendar fa-lg"></i> Calendar
             </div>
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th>Progress</th>
-                        <th></th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bug Fixes</td>
-                        <td>
-                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
-                                <div class="progress-bar" style="width: 45%">
-                                    <span class="sr-only">45% Complete</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td>45%</td>
-                        <td><span class="badge badge-info">2hr</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mobile Development</td>
-                        <td>
-                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
-                                <div class="progress-bar progress-bar-success" style="width: 61%">
-                                    <span class="sr-only">61% Complete</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td>61%</td>
-                        <td><span class="badge badge-info">1hr</span></td>
-                    </tr>
-                    <tr>
-                        <td>Unit Testing</td>
-                        <td>
-                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
-                                <div class="progress-bar progress-bar-danger" style="width: 97%">
-                                    <span class="sr-only">97% Complete</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td>97%</td>
-                        <td><span class="badge badge-info">5m</span></td>
-                    </tr>
-                    <tr>
-                        <td>New Frontend Layout</td>
-                        <td>
-                            <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
-                                <div class="progress-bar progress-bar-warning" style="width: 18%">
-                                    <span class="sr-only">18% Complete</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td>18%</td>
-                        <td><span class="badge badge-info">12hr</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div><!-- /panel -->
+            <div class="panel-body">
+                <div id="calendar"></div>
+            </div>
+        </div>
     </div><!-- /.col-->
 </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+@section styles
+{
+    @Styles.Render("~/Content/css/fullcalendar")
+}
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/fullcalendar")
+    <script>
+    $(function () {
+
+        // Full calendar
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        var calendar = $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            selectable: true,
+            selectHelper: true,
+            select: function (start, end, allDay) {
+                var title = prompt('Event Title:');
+                if (title) {
+                    calendar.fullCalendar('renderEvent',
+                        {
+                            title: title,
+                            start: start,
+                            end: end,
+                            allDay: allDay
+                        },
+                        true // make the event "stick"
+                    );
+                }
+                calendar.fullCalendar('unselect');
+            },
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: new Date(y, m, 1)
+                },
+                {
+                    title: 'Long Event',
+                    start: new Date(y, m, d - 5),
+                    end: new Date(y, m, d - 2)
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d - 3, 16, 0),
+                    allDay: false
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: new Date(y, m, d + 4, 16, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Meeting',
+                    start: new Date(y, m, d, 10, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                },
+                {
+                    title: 'Birthday Party',
+                    start: new Date(y, m, d + 1, 19, 0),
+                    end: new Date(y, m, d + 1, 22, 30),
+                    allDay: false
+                },
+                {
+                    title: 'Click for Google',
+                    start: new Date(y, m, 28),
+                    end: new Date(y, m, 28),
+                    url: 'http://google.com/'
+                }
+            ]
+        });
+    });
+</script>
+}

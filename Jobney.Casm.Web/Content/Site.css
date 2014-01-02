@@ -22,3 +22,10 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.panel.panel-default {
+    border-color: #DAE3F1;
+    -webkit-box-shadow: 0 0 3px 0 #FFF;
+    -ms-box-shadow: 0 0 3px 0 #FFF;
+    box-shadow: 0 0 3px 0 #FFF;
+}

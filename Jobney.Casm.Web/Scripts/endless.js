@@ -1,8 +1,8 @@
 $(function	()	{
     //Submenu
     $('aside li').hover(
-        function() { $(this).addClass('open') },
-        function() { $(this).removeClass('open') }
+        function() { $(this).addClass('open'); },
+        function() { $(this).removeClass('open'); }
     );
 
 	//Toggle Menu

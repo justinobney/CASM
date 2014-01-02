@@ -14,6 +14,10 @@ namespace Jobney.Casm.Web
                         "~/Scripts/endless.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/fullcalendar").Include(
+                        "~/Scripts/fullcalendar.js"
+                        ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -22,12 +26,19 @@ namespace Jobney.Casm.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/css/base").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/font-awesome.css",
+                      "~/Content/font-awesome.css"
+                    ));
+            bundles.Add(new StyleBundle("~/Content/css/custom").Include(
                       "~/Content/endless.css",
                       "~/Content/endless-skin.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css/fullcalendar").Include(
+                      "~/Content/fullcalendar.css",
+                      "~/Content/fullcalendar.print.css"
+                      ));
         }
     }
 }
