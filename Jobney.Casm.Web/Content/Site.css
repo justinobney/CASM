@@ -38,3 +38,11 @@ input[type="checkbox"].input-validation-error {
 .brand a {
     color: #FFF;
 }
+
+.trip-remove {
+    display: none;    
+}
+
+tr:hover .trip-remove {
+    display: initial;
+}

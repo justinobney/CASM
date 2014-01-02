@@ -1,0 +1,237 @@
+﻿<div class="row">
+    <div ui-view="">
+        <div ng-controller="NewTripCtrl">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="form-group">
+                    <label>Trip Name</label>
+                    <input type="text" ng-model="tripName" class="form-control ng-pristine ng-valid" placeholder="Appears on the calendar">
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <div class="input-group">
+                        <input ui-date="" type="text" ng-model="date" class="form-control ng-pristine ng-valid hasDatepicker" placeholder="Date">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Airplane</label>
+                    <select ng-model="airplane" class="form-control ng-pristine ng-valid">
+                        <option value="? undefined:undefined ?"></option>
+                        <option value="1">Citation</option>
+                        <option value="2">King Air</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select ng-model="status" class="form-control ng-pristine ng-valid">
+                        <option value="? undefined:undefined ?"></option>
+                        <option value="1">Pending</option>
+                        <option value="2">Confirmed</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary btn-block">Save Trip Info</button>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Add Stops
+                            <button ng-click="min = !min" type="button" class="btn btn-default btn-xs pull-right">
+                                <i class="fa fa-minus" ng-class="{'fa-minus': !min, 'fa-plus': min}"></i>
+                            </button>
+                        </h3>
+                    </div>
+                    <div class="panel-body" ng-hide="min">
+                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="form-group">
+                                <label>Locations</label>
+                                <input type="text" autofocus="" class="form-control ng-isolate-scope ng-valid ng-dirty" data-ng-autocomplete="result" details="details" options="options" ng-model="result" placeholder="Press 'Enter' to add" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="form-group">
+                                <label>Passengers</label>
+                                <input type="text" autofocus="" class="form-control" data-ng-autocomplete="result" details="details" options="options" ng-model="result" placeholder="Press 'Enter' to add">
+                            </div>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <a href="" ng-click="addStop()" class="btn btn-primary btn-block">Add Stop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Trip Wayponts
+                            <button ng-click="state.reorder = !state.reorder" ng-class="{'active': state.reorder}" type="button" class="btn btn-default btn-xs pull-right">
+                                <i class="fa fa-arrows-v"></i> reorder
+                            </button>
+                        </h3>
+                    </div>
+                    <!-- <div class="panel-body"></div> -->
+                    <table class="table">
+                        <tbody ui-sortable="sortableOptions" ng-model="waypoints" class="ng-pristine ng-valid ui-sortable">
+                            <!-- ngRepeat: location in waypoints -->
+                            <tr ng-repeat="location in waypoints">
+                                <td width="50px" ng-click="open = handleRowClick(open)" class="clickable ng-binding">
+                                    1
+                                    <i class="fa fa-chevron-right" ng-class="{'fa-chevron-right':!open || !min, 'fa-chevron-down':open &amp;&amp; min}"></i>
+                                </td>
+                                <td ng-class="{'drag-handle': state.reorder}">
+                                    <div class="ng-binding">
+                                        Baton Rouge, LA, United States
+                                        <span ng-show="location.specialRequests.length" class="ng-binding">
+                                            <i class="fa fa-star" ng-class="{'fa-star-o': hasUnfulfilledRequests(location), 'fa-star': !hasUnfulfilledRequests(location)}"></i>
+                                            1
+                                        </span>
+                                        <span ng-show="location.passengers.length" class="ng-binding ng-hide">
+                                            <i class="fa fa-user"></i>
+                                            0
+                                        </span>
+                                        <div class="pull-right ng-binding">
+                                            12/24/13 11:28 PM
+                                        </div>
+                                        <span class="trip-remove">
+                                            -
+                                            <a href="">
+                                                remove <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div ng-show="open &amp;&amp; min" class="hide">
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addPassenger(location)" class="ng-pristine ng-valid">
+                                                    <div class="form-group">
+                                                        <label>Passengers</label>
+                                                        <input type="text" ng-model="location.newPassenger" class="form-control ng-pristine ng-valid" placeholder="Add Passenger">
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <!-- ngRepeat: passenger in location.passengers -->
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addRequest(location)" class="ng-pristine ng-valid">
+                                                    <div class="form-group">
+                                                        <label>Special Requests</label>
+                                                        <input type="text" ng-model="location.newRequest" class="form-control ng-pristine ng-valid" placeholder="Add Request">
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <!-- ngRepeat: request in location.specialRequests -->
+                                                    <li ng-repeat="request in location.specialRequests" class="ng-binding">
+                                                        <input type="checkbox" ng-model="request.complete" class="ng-pristine ng-valid">Get me an omelet
+                                                    </li><!-- end ngRepeat: request in location.specialRequests -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea rows="4" class="form-control ng-binding"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="25px" ng-class="{'drag-handle': state.reorder}">
+                                    <i class="fa fa-arrows-v ng-hide" ng-show="state.reorder"></i>
+                                </td>
+                            </tr><!-- end ngRepeat: location in waypoints -->
+                            <tr ng-repeat="location in waypoints">
+                                <td width="50px" ng-click="open = handleRowClick(open)" class="clickable ng-binding">
+                                    2
+                                    <i class="fa fa-chevron-right" ng-class="{'fa-chevron-right':!open || !min, 'fa-chevron-down':open &amp;&amp; min}"></i>
+                                </td>
+                                <td ng-class="{'drag-handle': state.reorder}">
+                                    <div class="ng-binding">
+                                        Houston, TX, United States
+                                        <a href="">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                        &nbsp;&nbsp;
+                                        <span ng-show="location.specialRequests.length" class="ng-binding ng-hide">
+                                            <i class="fa fa-star" ng-class="{'fa-star-o': hasUnfulfilledRequests(location), 'fa-star': !hasUnfulfilledRequests(location)}"></i>
+
+                                        </span>
+                                        <span ng-show="location.passengers.length" class="ng-binding">
+                                            <i class="fa fa-user"></i>
+                                            3
+                                        </span>
+                                        <div class="pull-right ng-binding">
+                                            1/1/14 10:02 PM
+                                        </div>
+                                    </div>
+                                    <div ng-show="open &amp;&amp; min" class="hide">
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addPassenger(location)" class="ng-pristine ng-valid">
+                                                    <div class="form-group">
+                                                        <label>Passengers</label>
+                                                        <input type="text" ng-model="location.newPassenger" class="form-control ng-pristine ng-valid" placeholder="Add Passenger">
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <!-- ngRepeat: passenger in location.passengers -->
+                                                    <li ng-repeat="passenger in location.passengers" class="ng-binding">
+                                                        <a href="">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                        Justin Obney
+                                                    </li><!-- end ngRepeat: passenger in location.passengers -->
+                                                    <li ng-repeat="passenger in location.passengers" class="ng-binding">
+                                                        <a href="">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                        Brian Clark
+                                                    </li><!-- end ngRepeat: passenger in location.passengers -->
+                                                    <li ng-repeat="passenger in location.passengers" class="ng-binding">
+                                                        <a href="">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                        Lee Couch
+                                                    </li><!-- end ngRepeat: passenger in location.passengers -->
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addRequest(location)" class="ng-pristine ng-valid">
+                                                    <div class="form-group">
+                                                        <label>Special Requests</label>
+                                                        <input type="text" ng-model="location.newRequest" class="form-control ng-pristine ng-valid" placeholder="Add Request">
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <!-- ngRepeat: request in location.specialRequests -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea rows="4" class="form-control ng-binding"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td width="25px" ng-class="{'drag-handle': state.reorder}">
+                                    <i class="fa fa-arrows-v ng-hide" ng-show="state.reorder"></i>
+                                </td>
+                            </tr><!-- end ngRepeat: location in waypoints -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
