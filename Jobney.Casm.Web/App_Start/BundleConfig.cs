@@ -27,16 +27,16 @@ namespace Jobney.Casm.Web
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css/base").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/font-awesome.css"
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/font-awesome.css"
                     ));
             bundles.Add(new StyleBundle("~/Content/css/custom").Include(
-                      "~/Content/endless.css",
-                      "~/Content/endless-skin.css",
-                      "~/Content/site.css"));
+                      "~/Content/css/endless.css",
+                      "~/Content/css/endless-skin.css",
+                      "~/Content/css/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/css/fullcalendar").Include(
-                      "~/Content/fullcalendar.css"
+                      "~/Content/css/fullcalendar.css"
                       ));
         }
     }
