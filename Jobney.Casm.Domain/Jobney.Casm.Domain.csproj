@@ -49,6 +49,13 @@
     <Compile Include="PersonBase.cs" />
     <Compile Include="Pilot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trip.cs" />
+    <Compile Include="TripPilot.cs" />
+    <Compile Include="TripStatus.cs" />
+    <Compile Include="Waypoint.cs" />
+    <Compile Include="WaypointPassenger.cs" />
+    <Compile Include="WaypointRequest.cs" />
+    <Compile Include="WaypointRequestType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
