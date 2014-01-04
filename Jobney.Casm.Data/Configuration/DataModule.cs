@@ -1,4 +1,3 @@
-using System.Data.Entity;
 using Autofac;
 using Jobney.Core;
 using Jobney.Core.Domain.Interfaces;
@@ -10,12 +9,15 @@ namespace Jobney.Casm.Data.Configuration
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<DataContext>()
-                .As<DbContext>()
+                .As<IDbContext>()
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>()
                 .As<IUnitOfWork>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterGeneric(typeof(Repository<>))
+                .As(typeof(IRepository<>));
         }
     }
 }

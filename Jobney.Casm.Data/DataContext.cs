@@ -1,10 +1,13 @@
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Jobney.Casm.Data.EntityTypeConfigurations;
+using Jobney.Core.Domain;
+using Jobney.Core.Domain.Interfaces;
 
 namespace Jobney.Casm.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDbContext
     {
         public DataContext(): base("DefaultConnection")
         {}
@@ -15,6 +18,16 @@ namespace Jobney.Casm.Data
 
             modelBuilder.Configurations
                         .Add(new PilotEntityTypeConfiguration());
+        }
+
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entity
+        {
+            return base.Set<TEntity>(); ;
+        }
+
+        public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity : Entity
+        {
+            return base.Entry(entity);
         }
     }
 }

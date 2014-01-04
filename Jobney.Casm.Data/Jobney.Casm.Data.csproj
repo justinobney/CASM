@@ -66,6 +66,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\PilotSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
