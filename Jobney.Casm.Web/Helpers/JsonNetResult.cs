@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 
-namespace Jobney.Casm.Web.Controllers
+namespace Jobney.Casm.Web.Helpers
 {
     public class JsonNetResult : ActionResult
     {
