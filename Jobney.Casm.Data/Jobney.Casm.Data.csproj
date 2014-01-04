@@ -59,6 +59,10 @@
     <Compile Include="DatabaseUpgrader.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
+    <Compile Include="Migrations\201401040531455_AddingPilot.cs" />
+    <Compile Include="Migrations\201401040531455_AddingPilot.Designer.cs">
+      <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\PilotSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,7 +71,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401040531455_AddingPilot.resx">
+      <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jobney.Casm.Domain\Jobney.Casm.Domain.csproj">
       <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>

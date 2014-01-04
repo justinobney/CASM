@@ -6,6 +6,9 @@ namespace Jobney.Casm.Data
 {
     public class DataContext : DbContext
     {
+        public DataContext(): base("DefaultConnection")
+        {}
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
