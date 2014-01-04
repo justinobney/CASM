@@ -1,0 +1,24 @@
+﻿@model Jobney.Casm.Web.Models.ManageDataBootstrapper
+
+<script>
+    (function () {
+        'use strict';
+
+        var app = angular.module('Jobney.Casm.ManageApp', [
+            'ui.router'
+        ]);
+
+        app.run([function () {
+
+        }]);
+
+        app.factory('BootstrappedData', [function() {
+            var service = {};
+
+            service.pilots = @Html.Raw(Model.Pilots);
+            service.passengers = @Html.Raw(Model.Passengers);
+
+            return service;
+        }]);
+    })();
+</script>

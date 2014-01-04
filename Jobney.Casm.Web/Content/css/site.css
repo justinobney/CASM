@@ -1,4 +1,11 @@
-﻿/* styles for validation helpers */
+﻿/*#region Base */
+
+
+
+/*#endregion */
+
+/*#region Validation */
+
 .field-validation-error {
     color: #b94a48;
 }
@@ -23,6 +30,15 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
+/*#endregion */
+
+/*#region Bootstrap/Theme overrides */
+
+.tab-bar > li {
+    min-width: 75px;
+    text-align: center;
+}
+
 .panel.panel-default {
     border-color: #DAE3F1;
     -webkit-box-shadow: 0 0 3px 0 #FFF;
@@ -39,10 +55,16 @@ input[type="checkbox"].input-validation-error {
     color: #FFF;
 }
 
+/*#endregion */
+
+/*#region Trip Info Page */
+
 .trip-remove {
-    display: none;    
+    display: none;
 }
 
 tr:hover .trip-remove {
     display: initial;
 }
+
+/*#endregion */

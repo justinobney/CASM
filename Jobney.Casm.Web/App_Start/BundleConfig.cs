@@ -23,8 +23,8 @@ namespace Jobney.Casm.Web
                         "~/Scripts/libs/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/ng-base").Include(
-                        "~/Scripts/angular/angular.js",
-                        "~/Scripts/angular/ui-router.js"
+                        "~/Scripts/libs/angular/angular.js",
+                        "~/Scripts/libs/angular/ui-router.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

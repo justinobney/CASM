@@ -254,10 +254,12 @@
     <Content Include="Views\Shared\_TopNav.cshtml" />
     <Content Include="Views\Trip\Info.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\_ManageAppSetup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />
-    <Folder Include="Scripts\apps\" />
+    <Folder Include="Scripts\apps\manage\" />
+    <Folder Include="Scripts\apps\shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
