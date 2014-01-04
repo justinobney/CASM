@@ -11,6 +11,7 @@ namespace Jobney.Casm.Web
                         "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/bootstrap.js",
                         "~/Scripts/libs/respond.js",
+                        "~/Scripts/libs/lodash.js",
                         "~/Scripts/endless.js"
                         ));
 
@@ -20,6 +21,11 @@ namespace Jobney.Casm.Web
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/libs/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ng-base").Include(
+                        "~/Scripts/angular/angular.js",
+                        "~/Scripts/angular/ui-router.js"
+                        ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

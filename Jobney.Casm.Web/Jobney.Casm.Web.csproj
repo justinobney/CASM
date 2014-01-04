@@ -197,12 +197,17 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Scripts\libs\angular\angular.js" />
+    <Content Include="Scripts\libs\angular\angular.min.js" />
+    <Content Include="Scripts\libs\angular\ui-router.js" />
+    <Content Include="Scripts\libs\angular\ui-router.min.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\libs\angular\angular.min.js.map" />
     <None Include="Scripts\libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\endless.js" />
     <Content Include="Scripts\libs\fullcalendar.js" />
@@ -213,6 +218,8 @@
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\libs\lodash.js" />
+    <Content Include="Scripts\libs\lodash.min.js" />
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
