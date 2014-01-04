@@ -45,6 +45,10 @@
     <Reference Include="Autofac.Integration.Mvc">
       <HintPath>..\packages\Autofac.Mvc5.3.1.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Jobney.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Jobney.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -252,6 +256,10 @@
     <ProjectReference Include="..\Jobney.Casm.Data\Jobney.Casm.Data.csproj">
       <Project>{3022074A-1523-46BA-A71B-5DCC353E6248}</Project>
       <Name>Jobney.Casm.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Jobney.Casm.Domain\Jobney.Casm.Domain.csproj">
+      <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>
+      <Name>Jobney.Casm.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
