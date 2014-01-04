@@ -197,6 +197,9 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Scripts\apps\manage\manage-app-ctrl.js" />
+    <Content Include="Scripts\apps\manage\templates\airplanes.html" />
+    <Content Include="Scripts\apps\manage\templates\passengers.html" />
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\angular.min.js" />
     <Content Include="Scripts\libs\angular\ui-router.js" />
@@ -224,6 +227,7 @@
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\apps\manage\templates\pilots.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -258,7 +262,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />
-    <Folder Include="Scripts\apps\manage\" />
     <Folder Include="Scripts\apps\shared\" />
   </ItemGroup>
   <ItemGroup>

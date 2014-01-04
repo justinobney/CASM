@@ -8,7 +8,25 @@
             'ui.router'
         ]);
 
-        app.run([function () {
+        app.config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider, $urlRouterProvider) {
+            $stateProvider.state('pilots', {
+                templateUrl: '@Url.Content("~/Scripts/apps/manage/templates/pilots.html")',
+                url: '/pilots'
+            });
+
+            $stateProvider.state('passengers', {
+                templateUrl: '@Url.Content("~/Scripts/apps/manage/templates/passengers.html")',
+                url: '/passengers'
+            });
+
+            $stateProvider.state('airplanes', {
+                templateUrl: '@Url.Content("~/Scripts/apps/manage/templates/airplanes.html")',
+                url: '/airplanes'
+            });
+
+            $urlRouterProvider
+              .otherwise('/pilots');
 
         }]);
 
@@ -19,6 +37,11 @@
             service.passengers = @Html.Raw(Model.Passengers);
 
             return service;
+        }]);
+
+
+        app.run([function () {
+
         }]);
     })();
 </script>
