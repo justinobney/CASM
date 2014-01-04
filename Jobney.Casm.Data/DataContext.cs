@@ -17,7 +17,8 @@ namespace Jobney.Casm.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations
-                        .Add(new PilotEntityTypeConfiguration());
+                .Add(new PilotEntityTypeConfiguration())
+                .Add(new PassengerEntityTypeConfiguration());
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entity

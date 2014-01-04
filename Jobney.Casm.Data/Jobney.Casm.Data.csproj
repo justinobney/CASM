@@ -58,12 +58,18 @@
     <Compile Include="Configuration\DataModule.cs" />
     <Compile Include="DatabaseUpgrader.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="EntityTypeConfigurations\PassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
     <Compile Include="Migrations\201401040531455_AddingPilot.cs" />
     <Compile Include="Migrations\201401040531455_AddingPilot.Designer.cs">
       <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.cs" />
+    <Compile Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.Designer.cs">
+      <DependentUpon>201401041759366_AddingPassengersRestructurePersonBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\PassengerSeed.cs" />
     <Compile Include="Migrations\SeedData\PilotSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -75,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401040531455_AddingPilot.resx">
       <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.resx">
+      <DependentUpon>201401041759366_AddingPassengersRestructurePersonBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

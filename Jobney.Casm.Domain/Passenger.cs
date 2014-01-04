@@ -1,7 +1,7 @@
 ﻿namespace Jobney.Casm.Domain
 {
-    public class Pilot:PersonBase
+    public class Passenger : PersonBase
     {
-        
+
     }
 }
