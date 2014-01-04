@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Web", "Jobney.Casm.Web\Jobney.Casm.Web.csproj", "{406717CE-8AC2-4860-A9B3-F88CB57567C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Domain", "Jobney.Casm.Domain\Jobney.Casm.Domain.csproj", "{183D774E-289B-41D9-A57A-46DD75BC15A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Data", "Jobney.Casm.Data\Jobney.Casm.Data.csproj", "{3022074A-1523-46BA-A71B-5DCC353E6248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{406717CE-8AC2-4860-A9B3-F88CB57567C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{406717CE-8AC2-4860-A9B3-F88CB57567C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{406717CE-8AC2-4860-A9B3-F88CB57567C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183D774E-289B-41D9-A57A-46DD75BC15A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183D774E-289B-41D9-A57A-46DD75BC15A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183D774E-289B-41D9-A57A-46DD75BC15A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183D774E-289B-41D9-A57A-46DD75BC15A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3022074A-1523-46BA-A71B-5DCC353E6248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3022074A-1523-46BA-A71B-5DCC353E6248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3022074A-1523-46BA-A71B-5DCC353E6248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3022074A-1523-46BA-A71B-5DCC353E6248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
