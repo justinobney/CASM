@@ -12,6 +12,7 @@ namespace Jobney.Casm.Data.Migrations
 
         protected override void Seed(DataContext context)
         {
+            new PilotSeed().Seed(context);
         }
     }
 }

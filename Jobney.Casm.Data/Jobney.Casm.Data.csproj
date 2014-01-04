@@ -58,7 +58,9 @@
     <Compile Include="Configuration\DataModule.cs" />
     <Compile Include="DatabaseUpgrader.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\PilotSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

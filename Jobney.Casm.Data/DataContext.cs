@@ -10,6 +10,8 @@ namespace Jobney.Casm.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Configurations
+                        .Add(new PilotEntityTypeConfiguration());
         }
     }
 }
