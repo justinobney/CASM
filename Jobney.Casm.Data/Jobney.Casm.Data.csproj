@@ -55,11 +55,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\DataModule.cs" />
+    <Compile Include="DatabaseUpgrader.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Jobney.Casm.Domain\Jobney.Casm.Domain.csproj">
+      <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>
+      <Name>Jobney.Casm.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
