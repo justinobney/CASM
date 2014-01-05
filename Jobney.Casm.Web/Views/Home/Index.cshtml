@@ -27,14 +27,10 @@
 {
     @Scripts.Render("~/bundles/fullcalendar")
     <script>
-        $(function () {
+        $(function() {
+            var events = @Html.Raw(Model.TripsJson);
 
             // Full calendar
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
-
             var calendar = $('#calendar').fullCalendar({
                 header: {
                     left: 'prev,next today',
@@ -43,8 +39,22 @@
                 },
                 selectable: true,
                 selectHelper: true,
-                events: @Html.Raw(Model.TripsJson)
+                events: events
             });
+
+            $(document).on('click', '[data-action="add-trip"]', function(e) {
+                //code here
+                calendar
+                    .fullCalendar('renderEvent',
+                        {
+                            title: $('#NewTripTitle').val(),
+                            start: $('#NewTripDate').val()
+                        },
+                        true // make the event "stick"
+                    );
+            });
+
+            $('#NewTripDate').datepicker({});
         });
     </script>
 }
