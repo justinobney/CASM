@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201401050545061_MigrationBlowOut.Designer.cs">
       <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401050643252_WaypointDepartingNullable.cs" />
+    <Compile Include="Migrations\201401050643252_WaypointDepartingNullable.Designer.cs">
+      <DependentUpon>201401050643252_WaypointDepartingNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\AirplaneSeed.cs" />
     <Compile Include="Migrations\SeedData\PassengerSeed.cs" />
@@ -91,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401050545061_MigrationBlowOut.resx">
       <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401050643252_WaypointDepartingNullable.resx">
+      <DependentUpon>201401050643252_WaypointDepartingNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
