@@ -7,8 +7,11 @@ namespace Jobney.Casm.Domain
     {
         public string Name { get; set; }
         public int AirplaneId { get; set; }
-        //public virtual Airplane Airplane { get; set; }
+        public virtual Airplane Airplane { get; set; }
         public TripStatus Status { get; set; }
         public List<TripPilot> PilotList { get; set; }
+        public string RequestedBy { get; set; }
+        public string ScheduledBy { get; set; }
+        public List<Waypoint> Waypoints { get; set; }
     }
 }

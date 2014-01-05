@@ -13,7 +13,7 @@ namespace Jobney.Casm.Domain
         public string Airport { get; set; }
         public string Fbo { get; set; }
         public DateTime Departing { get; set; }
-        public DateTime Arriving { get; set; }
+        public DateTime? Arriving { get; set; }
         public DateTime Appointment { get; set; }
         public string AppointmentLocation { get; set; }
         public string Notes { get; set; }
