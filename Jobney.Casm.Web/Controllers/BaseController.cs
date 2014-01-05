@@ -7,16 +7,18 @@ namespace Jobney.Casm.Web.Controllers
 {
     public class BaseController : Controller
     {
+        protected JsonSerializerSettings jsonSettings = new JsonSerializerSettings
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver()
+        };
+
         protected internal JsonNetResult JsonResult(object data)
         {
             return new JsonNetResult
             {
                 Data = data,
                 Formatting = Formatting.Indented,
-                SerializerSettings = new JsonSerializerSettings
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                }
+                SerializerSettings = jsonSettings
             };
         }
     }
