@@ -14,6 +14,7 @@ namespace Jobney.Casm.Data.Migrations
         {
             new PilotSeed().Seed(context);
             new PassengerSeed().Seed(context);
+            new AirplaneSeed().Seed(context);
             new TripSeed().Seed(context);
         }
     }
