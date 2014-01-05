@@ -189,6 +189,7 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datepicker3.css" />
     <Content Include="Content\css\endless-skin.css" />
     <Content Include="Content\css\endless.css" />
     <Content Include="Content\css\font-awesome.css" />
@@ -210,6 +211,7 @@
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-tpls-0.9.0.min.js" />
     <Content Include="Scripts\libs\angular\ui-router.js" />
     <Content Include="Scripts\libs\angular\ui-router.min.js" />
+    <Content Include="Scripts\libs\bootstrap-datepicker.js" />
     <Content Include="Scripts\libs\bootstrap.js" />
     <Content Include="Scripts\libs\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />

@@ -10,6 +10,7 @@ namespace Jobney.Casm.Web
             bundles.Add(new ScriptBundle("~/bundles/js-base").Include(
                         "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/bootstrap.js",
+                        "~/Scripts/libs/bootstrap-datepicker.js",
                         "~/Scripts/libs/respond.js",
                         "~/Scripts/libs/lodash.js",
                         "~/Scripts/endless.js"
@@ -38,6 +39,7 @@ namespace Jobney.Casm.Web
 
             bundles.Add(new StyleBundle("~/Content/css/base").Include(
                       "~/Content/css/bootstrap.css",
+                      "~/Content/css/datepicker3.css",
                       "~/Content/css/font-awesome.css"
                     ));
             bundles.Add(new StyleBundle("~/Content/css/custom").Include(
