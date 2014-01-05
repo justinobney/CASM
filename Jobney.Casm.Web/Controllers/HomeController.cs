@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Jobney.Casm.Domain;
@@ -22,23 +21,24 @@ namespace Jobney.Casm.Web.Controllers
         {
             var vm = new TripCalendarViewModel
             {
-                TripsJson = JsonConvert.SerializeObject(GetMonthTrips(), jsonSettings)
+                TripsJson = JsonConvert.SerializeObject(GetTrips(), jsonSettings)
             };
             return View(vm);
         }
 
-        private IEnumerable<FullCalendarViewModel> GetMonthTrips()
+        private IEnumerable<FullCalendarViewModel> GetTrips()
         {
             return tripRepository
                 .Query()
-                .Where(t => t.Waypoints.Any(arg => (arg.Arriving.HasValue && arg.Arriving.Value.Month == DateTime.Now.Month) ||
-                   (arg.Departing.HasValue && arg.Departing.Value.Month == DateTime.Now.Month)))
+                .OrderByDescending(t=>t.Id)
                 .Select(t => new FullCalendarViewModel
                 {
                     Title = t.Name,
                     Start = t.Waypoints.Min(wp => wp.Departing),
                     End = t.Waypoints.Max(wp => wp.Arriving)
-                }).ToList();
+                })
+                .Take(500)
+                .ToList();
         }
     }
 }
