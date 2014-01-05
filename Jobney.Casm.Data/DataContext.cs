@@ -18,7 +18,12 @@ namespace Jobney.Casm.Data
 
             modelBuilder.Configurations
                 .Add(new PilotEntityTypeConfiguration())
-                .Add(new PassengerEntityTypeConfiguration());
+                .Add(new PassengerEntityTypeConfiguration())
+                .Add(new WaypointEntityTypeConfiguration())
+                .Add(new WaypointPassengerEntityTypeConfiguration())
+                .Add(new WaypointRequestEntityTypeConfiguration())
+                .Add(new TripEntityTypeConfiguration())
+                .Add(new TripPilotEntityTypeConfiguration());
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entity
