@@ -66,15 +66,12 @@
     <Compile Include="EntityTypeConfigurations\WaypointEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointPassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointRequestEntityTypeConfiguration.cs" />
-    <Compile Include="Migrations\201401040531455_AddingPilot.cs" />
-    <Compile Include="Migrations\201401040531455_AddingPilot.Designer.cs">
-      <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.cs" />
-    <Compile Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.Designer.cs">
-      <DependentUpon>201401041759366_AddingPassengersRestructurePersonBase.cs</DependentUpon>
+    <Compile Include="Migrations\201401050545061_MigrationBlowOut.cs" />
+    <Compile Include="Migrations\201401050545061_MigrationBlowOut.Designer.cs">
+      <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\AirplaneSeed.cs" />
     <Compile Include="Migrations\SeedData\PassengerSeed.cs" />
     <Compile Include="Migrations\SeedData\PilotSeed.cs" />
     <Compile Include="Migrations\SeedData\TripSeed.cs" />
@@ -86,18 +83,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401040531455_AddingPilot.resx">
-      <DependentUpon>201401040531455_AddingPilot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401041759366_AddingPassengersRestructurePersonBase.resx">
-      <DependentUpon>201401041759366_AddingPassengersRestructurePersonBase.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Jobney.Casm.Domain\Jobney.Casm.Domain.csproj">
       <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>
       <Name>Jobney.Casm.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401050545061_MigrationBlowOut.resx">
+      <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
