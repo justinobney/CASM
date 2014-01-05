@@ -7,5 +7,6 @@ namespace Jobney.Casm.Domain
         public int WaypointId { get; set; }
         public int PassengerId { get; set; }
         public virtual Passenger Passenger { get; set; }
+        public WaypointPassengerType PassengerType { get; set; }
     }
 }

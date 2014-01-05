@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Security.Cryptography;
 using Jobney.Casm.Domain;
 
 namespace Jobney.Casm.Data.Migrations.SeedData
@@ -31,8 +32,7 @@ namespace Jobney.Casm.Data.Migrations.SeedData
                 Appointment = DateTime.Now.AddDays(1),
                 AppointmentLocation = "Go to the bar",
                 Arriving = null,
-                BoardingPassengers = GetBoardingPassengers(context),
-                DepartingPassengers = GetBoardingPassengers(context),
+                Passengers = GetBoardingPassengers(context),
                 Departing = DateTime.Now.AddDays(1).AddHours(-5),
                 City = "Baton Rouge",
                 State = "LA",
@@ -53,7 +53,8 @@ namespace Jobney.Casm.Data.Migrations.SeedData
         {
             return context.Set<Passenger>().Take(() => 5).Select(x => new WaypointPassenger
             {
-                PassengerId = x.Id
+                PassengerId = x.Id,
+                PassengerType = new Random().Next(199) % 2 == 1 ? WaypointPassengerType.Boarding : WaypointPassengerType.Departing
             }).ToList();
         }
     }

@@ -17,8 +17,7 @@ namespace Jobney.Casm.Domain
         public DateTime Appointment { get; set; }
         public string AppointmentLocation { get; set; }
         public string Notes { get; set; }
-        public List<WaypointPassenger> BoardingPassengers { get; set; }
-        public List<WaypointPassenger> DepartingPassengers { get; set; }
+        public List<WaypointPassenger> Passengers { get; set; }
         public List<WaypointRequest> SpecialRequests { get; set; }
     }
 }

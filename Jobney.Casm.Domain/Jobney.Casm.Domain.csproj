@@ -55,6 +55,7 @@
     <Compile Include="TripStatus.cs" />
     <Compile Include="Waypoint.cs" />
     <Compile Include="WaypointPassenger.cs" />
+    <Compile Include="WaypointPassengerType.cs" />
     <Compile Include="WaypointRequest.cs" />
     <Compile Include="WaypointRequestType.cs" />
   </ItemGroup>
