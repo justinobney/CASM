@@ -25,6 +25,7 @@ namespace Jobney.Casm.Web
 
             bundles.Add(new ScriptBundle("~/bundles/ng-base").Include(
                         "~/Scripts/libs/angular/angular.js",
+                        "~/Scripts/libs/angular/ui-router.js",
                         "~/Scripts/libs/angular/ui-bootstrap-custom-0.9.0.js",
                         "~/Scripts/libs/angular/ui-bootstrap-custom-tpls-0.9.0.js"
                         ));

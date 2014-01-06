@@ -33,12 +33,18 @@ namespace Jobney.Casm.Web.Controllers
                 .OrderByDescending(t=>t.Id)
                 .Select(t => new FullCalendarViewModel
                 {
+                    Id = t.Id,
                     Title = t.Name,
                     Start = t.Waypoints.Min(wp => wp.Departing),
                     End = t.Waypoints.Max(wp => wp.Arriving)
                 })
                 .Take(500)
-                .ToList();
+                .ToList()
+                .Select(t =>
+                {
+                    t.Url = string.Format("{0}#/Edit{1}", Url.Action("Info", "Trip"), t.Id);
+                    return t;
+                });
         }
     }
 }
