@@ -42,7 +42,7 @@ namespace Jobney.Casm.Web.Controllers
                 .ToList()
                 .Select(t =>
                 {
-                    t.Url = string.Format("{0}#/Edit{1}", Url.Action("Info", "Trip"), t.Id);
+                    t.Url = string.Format("{0}#/edit/{1}", Url.Action("Info", "Trip"), t.Id);
                     return t;
                 });
         }

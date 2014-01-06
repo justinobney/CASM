@@ -32,7 +32,8 @@
 
 @section scripts
 {
+    <!-- Start ng-base -->
     @Scripts.Render("~/bundles/ng-base")
+    <!-- Start ng-manage-app -->
     @Html.Partial("_ManageAppSetup", Model)
-    @Scripts.Render("~/bundles/ng-manage-app")
 }
