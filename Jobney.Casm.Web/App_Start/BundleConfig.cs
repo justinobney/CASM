@@ -30,6 +30,8 @@ namespace Jobney.Casm.Web
                         "~/Scripts/libs/angular/ui-bootstrap-custom-tpls-0.9.0.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/ng-shared-services")
+                .IncludeDirectory("~/Scripts/apps/shared/", "*.js"));
             bundles.Add(new ScriptBundle("~/bundles/ng-manage-app")
                 .IncludeDirectory("~/Scripts/apps/manage/","*.js"));
 

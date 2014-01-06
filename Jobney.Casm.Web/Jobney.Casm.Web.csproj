@@ -203,6 +203,7 @@
     <Content Include="Scripts\apps\manage\manage-app-ctrl.js" />
     <Content Include="Scripts\apps\manage\templates\airplanes.html" />
     <Content Include="Scripts\apps\manage\templates\passengers.html" />
+    <Content Include="Scripts\apps\shared\trip-service.js" />
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\angular.min.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-0.9.0.js" />
@@ -267,10 +268,10 @@
     <Content Include="Views\Manage\_ManageAppSetup.cshtml" />
     <Content Include="Views\Home\_PlaneLegend.cshtml" />
     <Content Include="Views\Home\_TripQuickAdd.cshtml" />
+    <Content Include="Views\Shared\_SharedServices.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\img\" />
-    <Folder Include="Scripts\apps\shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
