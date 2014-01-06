@@ -32,8 +32,12 @@ namespace Jobney.Casm.Web
 
             bundles.Add(new ScriptBundle("~/bundles/ng-shared-services")
                 .IncludeDirectory("~/Scripts/apps/shared/", "*.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/ng-manage-app")
                 .IncludeDirectory("~/Scripts/apps/manage/","*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ng-tripinfo-app")
+                .IncludeDirectory("~/Scripts/apps/tripinfo/", "*.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

@@ -1,0 +1,35 @@
+﻿<script>
+    (function () {
+        'use strict';
+
+        var app = angular.module('Jobney.Casm.TripInfoApp', [
+            'ui.router',
+            'ui.bootstrap',
+            'Jobney.Casm.SharedServices'
+        ]);
+
+        app.config(['$stateProvider', '$urlRouterProvider',
+        function ($stateProvider, $urlRouterProvider) {
+
+            $stateProvider.state('new', {
+                templateUrl: '@Url.Content("~/Scripts/apps/tripinfo/templates/new.html")',
+                url: '/new'
+            });
+
+            $stateProvider.state('edit', {
+                templateUrl: '@Url.Content("~/Scripts/apps/tripinfo/templates/edit.html")',
+                url: '/edit/:id'
+            });
+
+            $urlRouterProvider
+              .otherwise('/new');
+
+        }]);
+
+        app.run([function () {
+
+        }]);
+    })();
+</script>
+
+@Scripts.Render("~/bundles/ng-tripinfo-app")
