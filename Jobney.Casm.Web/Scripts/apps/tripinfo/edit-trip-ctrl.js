@@ -3,13 +3,15 @@
 
     var app = angular.module('Jobney.Casm.TripInfoApp');
 
-    app.controller('EditTripCtrl', [
-        '$scope', function($scope) {
+    app.controller('EditTripCtrl', ['$scope', '$stateParams', 'TripService',
+        function ($scope, $stateParams, TripService) {
 
             activate();
 
             function activate() {
-                $scope.data = 42;
+                TripService.getById($stateParams.id).then(function(trip) {
+                    $scope.data = trip;
+                });
             }
 
         }
