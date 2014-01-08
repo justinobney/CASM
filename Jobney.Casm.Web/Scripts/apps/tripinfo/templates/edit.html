@@ -1,5 +1,104 @@
-﻿Edit Page
-
-<div ng-controller="EditTripCtrl">
-    <pre>{{data | json}}</pre>
+﻿<div ng-controller="EditTripCtrl" class="padding-md">
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading clickable">
+                        <h4 class="panel-title">
+                            <a href>Trip Info
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Trip Name</label>
+                            <input type="text" ng-model="trip.name" class="form-control" placeholder="Appears on the calendar">
+                        </div>
+                        <div class="form-group">
+                            <label>Airplane</label>
+                            <select ng-model="airplane" class="form-control">
+                                <option value="1">Citation</option>
+                                <option value="2">King Air</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select ng-model="status" class="form-control">
+                                <option value="1">Pending</option>
+                                <option value="2">Confirmed</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add Stops
+                        <button ng-click="min = !min" type="button" class="btn btn-default btn-xs pull-right">
+                            <i class="fa" ng-class="{'fa-minus': !min, 'fa-plus': min}"></i>
+                        </button>
+                    </h3>
+                </div>
+                <div class="panel-body" ng-hide="min">
+                    <div class="form-group">
+                        <label>Locations</label>
+                        <input type="text" autofocus class="form-control" data-ng-autocomplete="result" details="details" options="options" ng-model="result">
+                    </div>
+                    <div class="form-group">
+                        <label>Passengers</label>
+                        <input type="text" ui-select2="select2Options" ng-model="passengers" data-placeholder="Add Passengers" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <a href ng-click="addStop()" class="btn btn-primary btn-block">Add Stop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Trip Wayponts
+                    <button ng-click="state.reorder = !state.reorder" ng-class="{'active': state.reorder}" type="button" class="btn btn-default btn-xs pull-right">
+                        <i class="fa fa-arrows-v"></i>reorder
+                    </button>
+                    </h3>
+                </div>
+                <!-- <div class="panel-body"></div> -->
+                <table class="table">
+                    <tbody ui-sortable="sortableOptions" ng-model="trip.waypoints">
+                        <tr ng-repeat="location in trip.waypoints">
+                            <td width="50px" ng-click="open = handleRowClick(open)" class="clickable">{{$index + 1}}
+                                <i class="fa" ng-class="{'fa-chevron-right':!open || !min, 'fa-chevron-down':open && min}"></i>
+                            </td>
+                            <td ng-class="{'drag-handle': state.reorder}">
+                                <div>
+                                    {{location.city}}, {{location.state}}
+                                </div>
+                                <div data-ng-show="open">
+                                    <pre>{{location | json}}</pre>
+                                </div>
+                            </td>
+                            <td width="75px">
+                                <span ng-show="location.arriving">
+                                    <strong>arriving:</strong>
+                                    {{location.arriving | date:'short'}}
+                                </span>
+                            </td>
+                            <td width="75px">
+                                <span ng-show="location.departing">
+                                    <strong>departing:</strong>
+                                    {{location.departing | date:'short'}}
+                                </span>
+                            </td>
+                            <td width="25px" ng-class="{'drag-handle': state.reorder}">
+                                <i class="fa fa-arrows-v" ng-show="state.reorder"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
