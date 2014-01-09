@@ -2,12 +2,11 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Web;
 using Autofac;
-using Autofac.Core;
-using Autofac.Features.ResolveAnything;
 using Autofac.Integration.Mvc;
-using System.Web.Mvc;
 using Jobney.Casm.Data.Configuration;
+using Jobney.Casm.Web.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Module = Autofac.Module;
 
 namespace Jobney.Casm.Web
@@ -16,15 +15,10 @@ namespace Jobney.Casm.Web
     {
         public static void Configure()
         {
-            var builder = new ContainerBuilder();
-            RegisterModules(builder);
-            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
-            var container = builder.Build();
-
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            
         }
 
-        private static void RegisterModules(ContainerBuilder builder)
+        public static void RegisterModules(ContainerBuilder builder)
         {
             builder.RegisterModule<DataModule>();
             builder.RegisterModule<WebModule>();
@@ -40,6 +34,10 @@ namespace Jobney.Casm.Web
         {
             builder.Register(c => HttpContext.Current.User.Identity)
                 .As<IIdentity>()
+                .InstancePerLifetimeScope();
+
+            builder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+                .As<UserManager<ApplicationUser>>()
                 .InstancePerLifetimeScope();
 
             builder.RegisterControllers(Assembly.GetExecutingAssembly());

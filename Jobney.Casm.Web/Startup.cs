@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using Autofac;
+using Autofac.Features.ResolveAnything;
 using Autofac.Integration.Mvc;
 using DotNetDoodle.Owin;
 using DotNetDoodle.Owin.Dependencies;
@@ -22,11 +24,12 @@ namespace Jobney.Casm.Web
         public void Configuration(IAppBuilder app)
         {
             var builder = new ContainerBuilder();
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            AutofacConfiguration.RegisterModules(builder);
+            builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
             builder.RegisterOwinApplicationContainer();
-
             var container = builder.Build();
-            
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
             // Enable the application to use a cookie to store information for the signed in user
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
