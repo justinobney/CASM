@@ -8,7 +8,7 @@ using Jobney.Casm.Web.Models;
 namespace Jobney.Casm.Web.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         public AccountController(UserManager<ApplicationUser> userManager)
         {
