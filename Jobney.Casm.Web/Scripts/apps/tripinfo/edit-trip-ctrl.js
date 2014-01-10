@@ -5,12 +5,7 @@
 
     app.controller('EditTripCtrl', ['$scope', '$stateParams', 'TripService', 'BootstrappedData',
         function ($scope, $stateParams, TripService, BootstrappedData) {
-
-            $scope.handleRowClick = function(open) {
-                $scope.min = true;
-                return !open;
-            };
-
+            
             activate();
 
             function activate() {
