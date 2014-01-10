@@ -3,8 +3,8 @@
 
     var app = angular.module('Jobney.Casm.TripInfoApp');
 
-    app.controller('EditTripCtrl', ['$scope', '$stateParams', 'TripService',
-        function ($scope, $stateParams, TripService) {
+    app.controller('EditTripCtrl', ['$scope', '$stateParams', 'TripService', 'BootstrappedData',
+        function ($scope, $stateParams, TripService, BootstrappedData) {
 
             $scope.handleRowClick = function(open) {
                 $scope.min = true;
@@ -17,6 +17,8 @@
                 TripService.getById($stateParams.id).then(function(trip) {
                     $scope.trip = trip;
                 });
+
+                $scope.airplanes = BootstrappedData.airplanes;
             }
 
         }

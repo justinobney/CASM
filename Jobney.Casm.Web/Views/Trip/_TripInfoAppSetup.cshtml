@@ -1,4 +1,6 @@
-﻿<script>
+﻿@model Jobney.Casm.Web.Models.TripInfoDataBootstrapper
+
+<script>
     (function () {
         'use strict';
 
@@ -24,6 +26,14 @@
             $urlRouterProvider
               .otherwise('/new');
 
+        }]);
+
+        app.factory('BootstrappedData', [function() {
+            var service = {};
+
+            service.airplanes = @Html.Raw(Model.Airplanes);
+
+            return service;
         }]);
 
         app.run([function () {
