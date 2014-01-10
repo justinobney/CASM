@@ -26,8 +26,10 @@
         <div class="form-group">
             <label for="NewTripAirplane">Airplane</label>
             <select id="NewTripAirplane" class="form-control input-sm">
-                <option>Citation</option>
-                <option>Super King Air</option>
+                @foreach (var plane in Model.Airplanes)
+                {
+                    <option value="@plane.Id">@plane.Name</option>
+                }
             </select>
         </div>
         <button data-action="add-trip" class="btn btn-block btn-primary">Add Trip</button>

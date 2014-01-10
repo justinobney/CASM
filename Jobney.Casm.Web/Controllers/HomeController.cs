@@ -11,17 +11,20 @@ namespace Jobney.Casm.Web.Controllers
     public class HomeController : BaseController
     {
         private readonly IRepository<Trip> tripRepository;
+        private readonly IRepository<Airplane> airplaneRepository;
 
-        public HomeController(IRepository<Trip> tripRepository)
+        public HomeController(IRepository<Trip> tripRepository, IRepository<Airplane> airplaneRepository)
         {
             this.tripRepository = tripRepository;
+            this.airplaneRepository = airplaneRepository;
         }
 
         public ActionResult Index()
         {
             var vm = new TripCalendarViewModel
             {
-                TripsJson = JsonConvert.SerializeObject(GetTrips(), jsonSettings)
+                TripsJson = JsonConvert.SerializeObject(GetTrips(), jsonSettings),
+                Airplanes = airplaneRepository.GetAll()
             };
             return View(vm);
         }
