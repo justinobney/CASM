@@ -185,6 +185,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\JsonNetResult.cs" />
+    <Compile Include="Migrations\201401100524340_InitialCreate.cs" />
+    <Compile Include="Migrations\201401100524340_InitialCreate.Designer.cs">
+      <DependentUpon>201401100524340_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401100558161_UserPropertiesUpdate.cs" />
+    <Compile Include="Migrations\201401100558161_UserPropertiesUpdate.Designer.cs">
+      <DependentUpon>201401100558161_UserPropertiesUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageDataBootstrapper.cs" />
@@ -193,6 +202,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FullCalendarViewModel.cs" />
     <Compile Include="ViewModels\TripCalendarViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
@@ -299,6 +309,14 @@
       <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>
       <Name>Jobney.Casm.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201401100524340_InitialCreate.resx">
+      <DependentUpon>201401100524340_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401100558161_UserPropertiesUpdate.resx">
+      <DependentUpon>201401100558161_UserPropertiesUpdate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
