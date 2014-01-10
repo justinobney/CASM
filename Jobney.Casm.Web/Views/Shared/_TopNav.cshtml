@@ -65,7 +65,7 @@
         </li>
         <li class="profile dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <strong>John Doe</strong>
+                <strong>@User.Identity.Name</strong>
                 <span><i class="fa fa-chevron-down"></i></span>
             </a>
             <ul class="dropdown-menu">
@@ -73,14 +73,11 @@
                     <a class="clearfix" href="#">
                         <img src="img/user.jpg" alt="User Avatar">
                         <div class="detail">
-                            <strong>John Doe</strong>
-                            <p class="grey">John_Doe@email.com</p>
+                            <strong>@User.Identity.Name</strong>
                         </div>
                     </a>
                 </li>
                 @Html.Partial("_LoginPartial")
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="login.html" class="main-link"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
             </ul>
         </li>
     </ul>
