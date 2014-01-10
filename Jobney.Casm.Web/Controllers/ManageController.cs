@@ -3,17 +3,11 @@ using Jobney.Casm.Domain;
 using Jobney.Casm.Web.Models;
 using Jobney.Core.Domain.Interfaces;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Jobney.Casm.Web.Controllers
 {
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
-        private readonly JsonSerializerSettings jsonSettings = new JsonSerializerSettings
-        {
-            ContractResolver = new CamelCasePropertyNamesContractResolver()
-        };
-
         private readonly IRepository<Pilot> pilotRepository;
         private readonly IRepository<Passenger> passengerRepository;
 
