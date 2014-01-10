@@ -10,7 +10,8 @@ namespace Jobney.Casm.Data.Migrations.SeedData
         {
             var theplanes = new List<Airplane>
             {
-                new Airplane{Name = "SkyThunder", CallSign = "1337"}
+                new Airplane{Name = "SkyThunder", CallSign = "1337"},
+                new Airplane{Name = "ThePeacock", CallSign = "GRND-BRD"}
             };
 
             context.Set<Airplane>().AddOrUpdate(x => x.CallSign, theplanes.ToArray());
