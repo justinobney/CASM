@@ -214,6 +214,8 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fullcalendar.css" />
     <Content Include="Content\css\fullcalendar.print.css" />
+    <Content Include="Content\css\select2-bootstrap.css" />
+    <Content Include="Content\css\select2.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +229,7 @@
     <Content Include="Scripts\apps\tripinfo\templates\new.html" />
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\angular.min.js" />
+    <Content Include="Scripts\libs\angular\select2.js" />
     <Content Include="Scripts\libs\angular\sortable.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-0.9.0.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-0.9.0.min.js" />
@@ -258,6 +261,7 @@
     <Content Include="Scripts\libs\modernizr-2.6.2.js" />
     <Content Include="Scripts\libs\respond.js" />
     <Content Include="Scripts\libs\respond.min.js" />
+    <Content Include="Scripts\libs\select2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\apps\manage\templates\pilots.html" />
     <Content Include="Web.config" />

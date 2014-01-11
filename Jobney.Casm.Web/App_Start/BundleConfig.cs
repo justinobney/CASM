@@ -10,6 +10,7 @@ namespace Jobney.Casm.Web
             bundles.Add(new ScriptBundle("~/bundles/js-base").Include(
                         "~/Scripts/libs/jquery-{version}.js",
                         "~/Scripts/libs/bootstrap.js",
+                        "~/Scripts/libs/select2.js",
                         "~/Scripts/libs/bootstrap-datepicker.js",
                         "~/Scripts/libs/respond.js",
                         "~/Scripts/libs/lodash.js",
@@ -39,7 +40,8 @@ namespace Jobney.Casm.Web
             bundles.Add(new ScriptBundle("~/bundles/ng-tripinfo-app")
                 .Include(
                     "~/Scripts/libs/jquery-ui.js",
-                    "~/Scripts/libs/angular/sortable.js"
+                    "~/Scripts/libs/angular/sortable.js",
+                    "~/Scripts/libs/angular/select2.js"
                 )
                 .IncludeDirectory("~/Scripts/apps/tripinfo/", "*.js"));
 
@@ -51,6 +53,8 @@ namespace Jobney.Casm.Web
             bundles.Add(new StyleBundle("~/Content/css/base").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/datepicker3.css",
+                      "~/Content/css/select2.css",
+                      "~/Content/css/select2-bootstrap.css",
                       "~/Content/css/font-awesome.css"
                     ));
             bundles.Add(new StyleBundle("~/Content/css/custom").Include(
