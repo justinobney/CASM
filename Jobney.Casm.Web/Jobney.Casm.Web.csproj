@@ -309,6 +309,10 @@
       <Project>{183D774E-289B-41D9-A57A-46DD75BC15A2}</Project>
       <Name>Jobney.Casm.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Jobney.Casm.Services\Jobney.Casm.Services.csproj">
+      <Project>{CD903D91-F067-444D-ABC9-861261C104AE}</Project>
+      <Name>Jobney.Casm.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401100524340_InitialCreate.resx">
