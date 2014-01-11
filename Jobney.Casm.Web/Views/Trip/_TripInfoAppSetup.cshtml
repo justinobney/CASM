@@ -8,6 +8,7 @@
             'ui.router',
             'ui.bootstrap',
             'ui.sortable',
+            'ui.select2',
             'Jobney.Casm.SharedServices'
         ]);
 
@@ -33,6 +34,7 @@
             var service = {};
 
             service.airplanes = @Html.Raw(Model.Airplanes);
+            service.passengers = @Html.Raw(Model.Passengers);
 
             return service;
         }]);

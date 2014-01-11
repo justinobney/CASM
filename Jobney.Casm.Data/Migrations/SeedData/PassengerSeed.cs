@@ -16,6 +16,20 @@ namespace Jobney.Casm.Data.Migrations.SeedData
                     FirstName = "Chelsea",
                     LastName = "Obney",
                     PhoneNumber = "225-123-4567"
+                },
+                new Passenger
+                {
+                    EmailAddress = "jobney@envoc.com",
+                    FirstName = "Justin",
+                    LastName = "Obney",
+                    PhoneNumber = "225-123-4567"
+                },
+                new Passenger
+                {
+                    EmailAddress = "joe@aol.com",
+                    FirstName = "Joe",
+                    LastName = "Smith",
+                    PhoneNumber = "225-123-4567"
                 }
             };
 
