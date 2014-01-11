@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Domain", "Jobne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Data", "Jobney.Casm.Data\Jobney.Casm.Data.csproj", "{3022074A-1523-46BA-A71B-5DCC353E6248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Tests", "Jobney.Casm.Test\Jobney.Casm.Tests.csproj", "{428D3147-96BE-4E3B-9F12-F99055F668B9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Casm.Services", "Jobney.Casm.Services\Jobney.Casm.Services.csproj", "{CD903D91-F067-444D-ABC9-861261C104AE}"
 EndProject
 Global
@@ -29,6 +31,10 @@ Global
 		{3022074A-1523-46BA-A71B-5DCC353E6248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3022074A-1523-46BA-A71B-5DCC353E6248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3022074A-1523-46BA-A71B-5DCC353E6248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{428D3147-96BE-4E3B-9F12-F99055F668B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428D3147-96BE-4E3B-9F12-F99055F668B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428D3147-96BE-4E3B-9F12-F99055F668B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428D3147-96BE-4E3B-9F12-F99055F668B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD903D91-F067-444D-ABC9-861261C104AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD903D91-F067-444D-ABC9-861261C104AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD903D91-F067-444D-ABC9-861261C104AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
