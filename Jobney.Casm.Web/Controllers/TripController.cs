@@ -43,5 +43,11 @@ namespace Jobney.Casm.Web.Controllers
 
             return JsonResult(model);
         }
+
+        [HttpPost]
+        public ActionResult ReorderWaypoint(int id, int waypointId, int newOrder)
+        {
+            return JsonResult(new {Success = true});
+        }
     }
 }

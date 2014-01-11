@@ -16,6 +16,19 @@
                 });
             };
 
+            service.ReorderWaypoint = function(tripId, waypointId, newOrder) {
+                var url = ServiceRoutes.trip.reorderWaypoint + '/' + tripId;
+
+                var params = {
+                    waypointId: waypointId, 
+                    newOrder: newOrder
+                };
+
+                return $http.post(url, params).then(function (response) {
+                    return response.data;
+                });
+            };
+
             return service;
         }
     ]);
