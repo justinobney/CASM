@@ -19,15 +19,16 @@
                     placeholder: "drop-placeholder",
                     update: function (e, ui) {
                         setTimeout(function() {
-                            var scope = ui.item.scope();
-                            var tripId = scope.trip.id;
-                            var waypointId = scope.location.id;
+                            var waypointId = ui.item.scope().location.id;
                             var newOrder = ui.item.index() + 1;
+                            var tripId = $scope.trip.id;
+
                             TripService.ReorderWaypoint(tripId, waypointId, newOrder).then(function(response) {
-                                console.log(response);
+                                _.each($scope.trip.waypoints, function (wp, idx) {
+                                    wp.order = _.findWhere(response.tripOrderMap, { id: wp.id }).order;
+                                });
                             });
                         }, 0);
-                        // ui.item.scope().location
                     },
                     revert: true,
                     handle: ".drag-handle"
