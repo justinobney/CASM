@@ -1,5 +1,6 @@
 using Autofac;
 using Jobney.Casm.Data.Configuration;
+using Jobney.Casm.Services.Configuration;
 
 namespace Jobney.Casm.Web
 {
@@ -14,6 +15,7 @@ namespace Jobney.Casm.Web
         {
             builder.RegisterModule<DataModule>();
             builder.RegisterModule<WebModule>();
+            builder.RegisterModule<ServicesModule>();
         }
     }
 }
