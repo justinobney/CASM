@@ -44,7 +44,9 @@
                     </div>
                     <div class="form-group">
                         <label>Passengers</label>
-                        <input type="text" ui-select2="select2Options" ng-model="passengers" data-placeholder="Add Passengers" class="form-control">
+                        <select multiple="" ui-select2="select2Options" ng-model="passengers" data-placeholder="Add Passengers" class="form-control">
+                            <option ng-repeat="p in passengerList" value="{{p.id}}">{{p.text}}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>&nbsp;</label>
