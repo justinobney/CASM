@@ -1,9 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Jobney.Casm.Domain;
 using Jobney.Casm.Services;
 using Jobney.Casm.Web.Models;
+using Jobney.Casm.Web.ViewModels;
 using Jobney.Core;
 using Jobney.Core.Domain.Interfaces;
 using Newtonsoft.Json;
@@ -13,14 +15,19 @@ namespace Jobney.Casm.Web.Controllers
     public class TripController : BaseController
     {
         private readonly IRepository<Trip> tripRepository;
+        private readonly IRepository<Waypoint> waypointRepository; 
         private readonly IRepository<Airplane> airplaneRepository;
         private readonly IRepository<Passenger> passengerRepository;
         private readonly TripService tripService;
 
-        public TripController(IRepository<Trip> tripRepository, IRepository<Airplane> airplaneRepository, 
-            IRepository<Passenger> passengerRepository, TripService tripService)
+        public TripController(IRepository<Trip> tripRepository,
+                              IRepository<Waypoint> waypointRepository,
+                              IRepository<Airplane> airplaneRepository, 
+                              IRepository<Passenger> passengerRepository, 
+                              TripService tripService)
         {
             this.tripRepository = tripRepository;
+            this.waypointRepository = waypointRepository;
             this.airplaneRepository = airplaneRepository;
             this.passengerRepository = passengerRepository;
             this.tripService = tripService;
@@ -52,6 +59,31 @@ namespace Jobney.Casm.Web.Controllers
             model.Waypoints = model.Waypoints.OrderBy(wp => wp.Order).ToList();
 
             return JsonResult(model);
+        }
+
+        [HttpPost]
+        public ActionResult CreateWaypoint(NewWaypointViewModel waypoint) {
+            if (!ModelState.IsValid) {
+                return JsonResult(new {Success = false, ModelState});
+            }
+
+            var entity = new Waypoint {
+                City = waypoint.City,
+                State = waypoint.State,
+                Passengers = new List<WaypointPassenger>()
+            };
+
+            foreach (var passengerId in waypoint.PassengerIds) {
+                entity.Passengers.Add(
+                    new WaypointPassenger {
+                        Id = passengerId
+                    });
+            }
+
+            waypointRepository.InsertOrUpdate(entity);
+            uow.SaveChanges();
+
+            return JsonResult(new {Success = true, entity});
         }
 
         [HttpPost]
