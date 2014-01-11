@@ -65,7 +65,7 @@ namespace Jobney.Casm.Data.Migrations.SeedData
 
             var wp3 = new Waypoint
             {
-                Order = 2,
+                Order = 3,
                 Arriving = DateTime.Now.AddDays(9).AddHours(-3),
                 Airport = "KBTR",
                 City = "Baton Rouge",
