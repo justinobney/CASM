@@ -67,7 +67,7 @@
                     <tbody ui-sortable="sortableOptions" ng-model="trip.waypoints">
                         <tr ng-repeat="location in trip.waypoints">
                             <td width="50px" ng-click="open = !open" class="clickable">
-                                {{$index + 1}}
+                                {{location.order}}
                                 <i class="fa" ng-class="{'fa-chevron-right':!open || !min, 'fa-chevron-down':open && min}"></i>
                             </td>
                             <td ng-class="{'drag-handle': state.reorder}">

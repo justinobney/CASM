@@ -227,6 +227,7 @@
     <Content Include="Scripts\apps\tripinfo\templates\new.html" />
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\angular.min.js" />
+    <Content Include="Scripts\libs\angular\sortable.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-0.9.0.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-0.9.0.min.js" />
     <Content Include="Scripts\libs\angular\ui-bootstrap-custom-tpls-0.9.0.js" />
@@ -247,6 +248,7 @@
     <Content Include="Scripts\libs\jquery-1.10.2.js" />
     <Content Include="Scripts\libs\jquery-1.10.2.min.js" />
     <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\libs\jquery-ui.js" />
     <Content Include="Scripts\libs\jquery.validate.js" />
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\jquery.validate.unobtrusive.js" />

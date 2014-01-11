@@ -37,6 +37,10 @@ namespace Jobney.Casm.Web
                 .IncludeDirectory("~/Scripts/apps/manage/","*.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/ng-tripinfo-app")
+                .Include(
+                    "~/Scripts/libs/jquery-ui.js",
+                    "~/Scripts/libs/angular/sortable.js"
+                )
                 .IncludeDirectory("~/Scripts/apps/tripinfo/", "*.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
