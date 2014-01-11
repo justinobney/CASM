@@ -41,7 +41,8 @@ namespace Jobney.Casm.Web
                 .Include(
                     "~/Scripts/libs/jquery-ui.js",
                     "~/Scripts/libs/angular/sortable.js",
-                    "~/Scripts/libs/angular/select2.js"
+                    "~/Scripts/libs/angular/select2.js",
+                    "~/Scripts/libs/angular/ngAutocomplete.js"
                 )
                 .IncludeDirectory("~/Scripts/apps/tripinfo/", "*.js"));
 

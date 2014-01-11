@@ -13,8 +13,6 @@
                     $scope.trip = trip;
                 });
 
-                $scope.airplanes = BootstrappedData.airplanes;
-
                 $scope.sortableOptions = {
                     placeholder: "drop-placeholder",
                     update: function (e, ui) {
@@ -28,11 +26,15 @@
                     handle: ".drag-handle"
                 };
 
+                $scope.airplanes = BootstrappedData.airplanes;
                 $scope.passengerList = _.map(BootstrappedData.passengers, function(p) {
                     return { id: p.id, text: p.firstName + ' ' + p.lastName };
                 });
 
                 $scope.select2Options = {};
+                $scope.ngAutocompleteOptions = {};
+
+                setupWatches();
             }
 
             function handleWaypointReorder(waypointId, newOrder) {
@@ -44,6 +46,15 @@
                     });
                 });
             };
+
+            function setupWatches() {
+                $scope.$watch(function () { return $scope.details; }, handleDetailsUpdate);
+            }
+
+            function handleDetailsUpdate(newVal, oldVal, scope) {
+                if (newVal && newVal.geometry)
+                    $scope.center = newVal.geometry.location;
+            }
 
         }
     ]);
