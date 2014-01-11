@@ -14,12 +14,15 @@ namespace Jobney.Casm.Web.Controllers
     {
         private readonly IRepository<Trip> tripRepository;
         private readonly IRepository<Airplane> airplaneRepository;
+        private readonly IRepository<Passenger> passengerRepository;
         private readonly TripService tripService;
 
-        public TripController(IRepository<Trip> tripRepository, IRepository<Airplane> airplaneRepository, TripService tripService)
+        public TripController(IRepository<Trip> tripRepository, IRepository<Airplane> airplaneRepository, 
+            IRepository<Passenger> passengerRepository, TripService tripService)
         {
             this.tripRepository = tripRepository;
             this.airplaneRepository = airplaneRepository;
+            this.passengerRepository = passengerRepository;
             this.tripService = tripService;
         }
 
@@ -33,7 +36,8 @@ namespace Jobney.Casm.Web.Controllers
         {
             return new TripInfoDataBootstrapper
             {
-                Airplanes = JsonConvert.SerializeObject(airplaneRepository.GetAll().ToList(), jsonSettings)
+                Airplanes = JsonConvert.SerializeObject(airplaneRepository.GetAll().ToList(), jsonSettings),
+                Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll().ToList(), jsonSettings)
             };
         }
 
