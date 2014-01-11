@@ -29,6 +29,10 @@
                 });
             };
 
+            service.addWaypoint = function(newWaypoint) {
+                console.log(newWaypoint);
+            };
+
             return service;
         }
     ]);
