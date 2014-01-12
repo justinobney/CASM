@@ -2,57 +2,87 @@
 
 @{
     ViewBag.Title = "Log in";
+    Layout = null;
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true)
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.UserName)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    @Styles.Render("~/Content/css/base")
+    @Styles.Render("~/Content/css/custom")
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <div class="text-center">
+            <h2 class="fadeInUp animation-delay8" style="font-weight:bold">
+                <span class="text-success">C.A.S.M</span> <span style="color:#ccc; text-shadow:0 1px #fff">Admin</span>
+            </h2>
+        </div>
+        <div class="login-widget animation-delay1">
+            <div class="panel panel-default">
+                <div class="panel-heading clearfix">
+                    <div class="pull-left">
+                        <i class="fa fa-lock fa-lg"></i> Login
+                    </div>
+
+                    <div class="pull-right">
+                        <span style="font-size:11px;">Don't have any account?</span>
+                        <a class="btn btn-default btn-xs login-link" href="@Url.Action("Register", "Account")" style="margin-top:-2px;">
+                            <i class="fa fa-plus-circle"></i> Sign up
+                        </a>
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+                <div class="panel-body">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-login", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <label>Username</label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-sm bounceIn animation-delay2", placeholder = "Username" })
+                            @Html.ValidationMessageFor(m => m.UserName)
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm bounceIn animation-delay4", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        <div class="form-group">
+                            <label class="label-checkbox inline">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                <input type="checkbox" class="regular-checkbox chk-delete" />
+                                <span class="custom-checkbox info bounceIn animation-delay4"></span>
+                            </label>
+                            Remember me
+                        </div>
+
+                        <div class="seperator"></div>
+                        <div class="form-group">
+                            Forgot your password?<br />
+                            Click <a href="#">here</a> to reset your password
+                        </div>
+
+                        <hr />
+
+                        <button type="submit" class="btn btn-success btn-sm bounceIn animation-delay5 login-link pull-right">
+                            <i class="fa fa-sign-in"></i> Sign in
+                        </button>
+                    }
+                    
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
-                </p>
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+            </div><!-- /panel -->
+        </div><!-- /login-widget -->
+    </div><!-- /login-wrapper -->
+    <!-- Le javascript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/js-base")
+</body>
+</html>
