@@ -32,7 +32,11 @@
     <script>
         $(function() {
             var events = @Html.Raw(Model.TripsJson);
-            homeApp.init(events);
+            var urls = {
+                tripQuickCreate: '@Url.Action("QuickAdd", "Trip")'
+            };
+
+            homeApp.init(events, urls);
         });
     </script>
 }

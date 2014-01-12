@@ -203,6 +203,7 @@
     <Compile Include="ViewModels\FullCalendarViewModel.cs" />
     <Compile Include="ViewModels\NewWaypointViewModel.cs" />
     <Compile Include="ViewModels\TripCalendarViewModel.cs" />
+    <Compile Include="ViewModels\TripQuickAddViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

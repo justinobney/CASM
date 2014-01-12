@@ -33,12 +33,6 @@ namespace Jobney.Casm.Web.Controllers
             this.tripService = tripService;
         }
 
-        public ActionResult Info()
-        {
-            var bootstrapData = BootstrapData();
-            return View(bootstrapData);
-        }
-
         private TripInfoDataBootstrapper BootstrapData()
         {
             return new TripInfoDataBootstrapper
@@ -46,6 +40,12 @@ namespace Jobney.Casm.Web.Controllers
                 Airplanes = JsonConvert.SerializeObject(airplaneRepository.GetAll().ToList(), jsonSettings),
                 Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll().ToList(), jsonSettings)
             };
+        }
+        
+        public ActionResult Info()
+        {
+            var bootstrapData = BootstrapData();
+            return View(bootstrapData);
         }
 
         public ActionResult GetById(int id)
@@ -97,6 +97,16 @@ namespace Jobney.Casm.Web.Controllers
             uow.SaveChanges();
 
             return JsonResult(new {Success = true, entity});
+        }
+
+        [HttpPost]
+        public ActionResult QuickAdd(TripQuickAddViewModel waypoint)
+        {
+            // Build trip
+            // Look default departure from settings
+            // Create default departure waypoint // use trip date as departing time
+            // Create arriving waypoint //use trip date as arriving time
+            return JsonResult(new { Success = true, waypoint });
         }
 
         [HttpPost]
