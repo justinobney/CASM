@@ -16,7 +16,9 @@
                     passengerIds: $scope.passengers
                 };
 
-                TripService.addWaypoint(newWaypoint);
+                TripService.addWaypoint(newWaypoint).then(function(response) {
+                    $scope.trip.waypoints.push(response.entity);
+                });
             };
 
             activate();

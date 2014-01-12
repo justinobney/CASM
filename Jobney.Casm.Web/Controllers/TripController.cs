@@ -62,21 +62,34 @@ namespace Jobney.Casm.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateWaypoint(NewWaypointViewModel waypoint) {
+        public ActionResult CreateWaypoint(NewWaypointViewModel waypoint)
+        {
+            var trip = tripRepository
+                .Query()
+                .Include(t => t.Waypoints)
+                .FirstOrDefault(t => t.Id == waypoint.TripId);
+
+            if (trip == null)
+            {
+                return JsonResult(new {Success = false});
+            }
+            
             if (!ModelState.IsValid) {
                 return JsonResult(new {Success = false, ModelState});
             }
 
             var entity = new Waypoint {
+                TripId = waypoint.TripId,
                 City = waypoint.City,
                 State = waypoint.State,
-                Passengers = new List<WaypointPassenger>()
+                Passengers = new List<WaypointPassenger>(),
+                Order = trip.Waypoints.Max(x=>x.Order) + 1
             };
 
             foreach (var passengerId in waypoint.PassengerIds) {
                 entity.Passengers.Add(
                     new WaypointPassenger {
-                        Id = passengerId
+                        PassengerId = passengerId
                     });
             }
 

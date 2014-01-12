@@ -29,8 +29,12 @@
                 });
             };
 
-            service.addWaypoint = function(newWaypoint) {
-                console.log(newWaypoint);
+            service.addWaypoint = function (newWaypoint) {
+                var url = ServiceRoutes.trip.createWaypoint;
+
+                return $http.post(url, newWaypoint).then(function (response) {
+                    return(response.data);
+                });
             };
 
             return service;
