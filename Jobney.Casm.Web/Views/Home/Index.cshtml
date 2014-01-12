@@ -1,9 +1,12 @@
 ﻿@model Jobney.Casm.Web.ViewModels.TripCalendarViewModel
 
-<div class="padding-md">
+<div class="padding-md home-page">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
             @Html.Partial("_PlaneLegend", Model)
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-3">
             @Html.Partial("_TripQuickAdd", Model)
         </div><!-- /.col -->
         <div class="col-md-9">
