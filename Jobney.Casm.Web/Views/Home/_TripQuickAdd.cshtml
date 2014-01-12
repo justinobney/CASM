@@ -1,6 +1,6 @@
 ﻿@model Jobney.Casm.Web.ViewModels.TripCalendarViewModel
 
-<div class="panel panel-default">
+<div class="panel panel-default trip-quick-add">
     <div class="panel-heading">
         <strong>Add Trip</strong>
         @*<ul class="panel-toolbar">
@@ -22,6 +22,12 @@
                     <i class="fa fa-calendar"></i>
                 </span>
             </div>
+        </div>
+        <div class="form-group">
+            <label for="NewTripDestination">Destination</label>
+            <input type="text" class="form-control input-sm" id="NewTripDestination" placeholder="Where ya going?">
+            <input name="locality" type="hidden" id="NewTripCity" value="">
+            <input name="administrative_area_level_1" id="NewTripState" type="hidden" value="">
         </div>
         <div class="form-group">
             <label for="NewTripAirplane">Airplane</label>

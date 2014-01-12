@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function () {
     'use strict';
     var homeApp = window.homeApp = {};
     var urlMap = {};
@@ -28,27 +28,33 @@
 
     function bindEvents() {
         $(document).on('click', '[data-action="add-trip"]', addNewTrip);
+
+        $("#NewTripDestination").geocomplete({
+            details: ".trip-quick-add"
+        });
     };
 
     function addNewTrip() {
         var data = {
             tripName: $('#NewTripTitle').val(),
             departingDate: $('#NewTripDate').val(),
-            airplaneId: $('#NewTripAirplane').val()
+            airplaneId: $('#NewTripAirplane').val(),
+            city: $('#NewTripCity').val(),
+            state: $('#NewTripState').val()
         };
 
-        $.post(urlMap.tripQuickCreate, data).success(function(response) {
-            alert(response.success);
+        $.post(urlMap.tripQuickCreate, data).success(function (response) {
+            if (response.success) {
+                homeApp.calendar
+                    .fullCalendar('renderEvent',
+                        {
+                            title: $('#NewTripTitle').val(),
+                            start: $('#NewTripDate').val()
+                        },
+                        true // make the event "stick"
+                    );
+            }
         });
-
-        homeApp.calendar
-            .fullCalendar('renderEvent',
-                {
-                    title: $('#NewTripTitle').val(),
-                    start: $('#NewTripDate').val()
-                },
-                true // make the event "stick"
-            );
     }
 
 })()

@@ -7,5 +7,7 @@ namespace Jobney.Casm.Web.ViewModels
         public string TripName { get; set; }
         public DateTime DepartingDate { get; set; }
         public int AirplaneId { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 }

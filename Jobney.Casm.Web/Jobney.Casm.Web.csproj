@@ -257,6 +257,7 @@
     <Content Include="Scripts\libs\jquery-1.10.2.min.js" />
     <None Include="Scripts\libs\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\libs\jquery-ui.js" />
+    <Content Include="Scripts\libs\jquery.geocomplete.js" />
     <Content Include="Scripts\libs\jquery.validate.js" />
     <Content Include="Scripts\libs\jquery.validate.min.js" />
     <Content Include="Scripts\libs\jquery.validate.unobtrusive.js" />
