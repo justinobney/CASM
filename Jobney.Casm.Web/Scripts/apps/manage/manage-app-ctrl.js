@@ -27,4 +27,12 @@
             }
         ]
     );
+
+    app.controller('ManageAirplanesCtrl', [
+            '$scope', 'BootstrappedData',
+            function ($scope, BootstrappedData) {
+                $scope.airplanes = BootstrappedData.airplanes;
+            }
+    ]
+    );
 })();

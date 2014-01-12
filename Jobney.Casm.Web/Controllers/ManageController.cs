@@ -11,11 +11,13 @@ namespace Jobney.Casm.Web.Controllers
     {
         private readonly IRepository<Pilot> pilotRepository;
         private readonly IRepository<Passenger> passengerRepository;
+        private readonly IRepository<Airplane> airplaneRepository;
 
-        public ManageController(IRepository<Pilot> pilotRepository, IRepository<Passenger> passengerRepository )
+        public ManageController(IRepository<Pilot> pilotRepository, IRepository<Passenger> passengerRepository, IRepository<Airplane> airplaneRepository)
         {
             this.pilotRepository = pilotRepository;
             this.passengerRepository = passengerRepository;
+            this.airplaneRepository = airplaneRepository;
         }
 
         // GET: /Manage/
@@ -31,6 +33,7 @@ namespace Jobney.Casm.Web.Controllers
             {
                 Pilots = JsonConvert.SerializeObject(pilotRepository.GetAll(), jsonSettings),
                 Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll(), jsonSettings),
+                Airplanes = JsonConvert.SerializeObject(airplaneRepository.GetAll(), jsonSettings),
                 Settings = JsonConvert.SerializeObject(new CasmSettingsViewModel(), jsonSettings)
             };
         }
