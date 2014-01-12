@@ -8,4 +8,9 @@
             return $state.is(state) ? 'active' : '';
         };
     }]);
+
+    app.controller('ManagePilotCtrl', ['$scope', 'BootstrappedData',
+        function ($scope, BootstrappedData) {
+            $scope.pilots = BootstrappedData.pilots;
+        }]); 
 })();
