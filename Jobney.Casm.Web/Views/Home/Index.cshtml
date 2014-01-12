@@ -26,22 +26,13 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/fullcalendar")
+    
+    <script src="@Url.Content("~/Scripts/pages/home.index.js")"></script>
+
     <script>
         $(function() {
             var events = @Html.Raw(Model.TripsJson);
-
-            // Full calendar
-            var calendar = $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: ''
-                },
-                selectable: true,
-                selectHelper: true,
-                events: events
-            });
+            homeApp.init(events);
         });
     </script>
-    <script src="@Url.Content("~/Scripts/pages/home.index.js")"></script>
 }
