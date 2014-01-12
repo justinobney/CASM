@@ -200,6 +200,7 @@
     <Compile Include="Models\TripInfoDataBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CasmSettingsViewModel.cs" />
     <Compile Include="ViewModels\FullCalendarViewModel.cs" />
     <Compile Include="ViewModels\NewWaypointViewModel.cs" />
     <Compile Include="ViewModels\TripCalendarViewModel.cs" />
@@ -225,6 +226,7 @@
     <Content Include="Scripts\apps\manage\manage-app-ctrl.js" />
     <Content Include="Scripts\apps\manage\templates\airplanes.html" />
     <Content Include="Scripts\apps\manage\templates\passengers.html" />
+    <Content Include="Scripts\apps\manage\templates\settings.html" />
     <Content Include="Scripts\apps\shared\trip-service.js" />
     <Content Include="Scripts\apps\tripinfo\edit-trip-ctrl.js" />
     <Content Include="Scripts\apps\tripinfo\templates\edit.html" />

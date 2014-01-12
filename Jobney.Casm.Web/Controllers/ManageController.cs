@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Jobney.Casm.Domain;
 using Jobney.Casm.Web.Models;
+using Jobney.Casm.Web.ViewModels;
 using Jobney.Core.Domain.Interfaces;
 using Newtonsoft.Json;
 
@@ -29,7 +30,8 @@ namespace Jobney.Casm.Web.Controllers
             return new ManageDataBootstrapper
             {
                 Pilots = JsonConvert.SerializeObject(pilotRepository.GetAll(), jsonSettings),
-                Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll(), jsonSettings)
+                Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll(), jsonSettings),
+                Settings = JsonConvert.SerializeObject(new CasmSettingsViewModel(), jsonSettings)
             };
         }
     }

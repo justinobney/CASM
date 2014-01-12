@@ -23,8 +23,13 @@
 
                 $stateProvider.state('airplanes', {
                     templateUrl: '@Url.Content("~/Scripts/apps/manage/templates/airplanes.html")',
-                url: '/airplanes'
-            });
+                    url: '/airplanes'
+                });
+
+                $stateProvider.state('settings', {
+                    templateUrl: '@Url.Content("~/Scripts/apps/manage/templates/settings.html")',
+                    url: '/settings'
+                });
 
             $urlRouterProvider
                 .otherwise('/pilots');
@@ -36,6 +41,7 @@
 
             service.pilots = @Html.Raw(Model.Pilots);
             service.passengers = @Html.Raw(Model.Passengers);
+            service.settings = @Html.Raw(Model.Settings);
 
             return service;
         }]);
