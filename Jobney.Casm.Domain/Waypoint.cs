@@ -19,5 +19,7 @@ namespace Jobney.Casm.Domain
         public string Notes { get; set; }
         public List<WaypointPassenger> Passengers { get; set; }
         public List<WaypointRequest> SpecialRequests { get; set; }
+
+        public int TripId { get; set; }
     }
 }
