@@ -1,7 +1,86 @@
-﻿<div class="padding-md">
+﻿<div ng-controller="ManagePassengersCtrl" class="padding-md">
     <div class="row">
-        <div class="col-md-12">
-            Passengers
+        <div class="col-md-6">
+            <div class="panel panel-default table-responsive">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <button type="button" class="btn btn-sm btn-success">
+                                <i class="fa fa-plus"></i> New
+                            </button>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-sm">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-sm btn-success" tabindex="-1">Search</button>
+                                </div> <!-- /input-group-btn -->
+                            </div>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div>
+                <table class="table table-striped" id="responsiveTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="passenger in passengers">
+                            <td>
+                                <a>
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+                            <td>{{passenger.firstName}}</td>
+                            <td>{{passenger.lastName}}</td>
+                            <td>{{passenger.emailAddress}}</td>
+                            <td>{{passenger.phoneNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer clearfix">
+                    <span class="label label-info">{{passengers.length}} Passenger</span>
+                    <ul class="pagination pagination-xs m-top-none pull-right">
+                        <li class="disabled"><a href="#">Previous</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div><!-- /panel -->
         </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    New/Edit Passenger
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Setting 1</label>
+                            <input type="text" class="form-control input-sm" placeholder="Setting 1">
+                        </div>
+                        <div class="form-group">
+                            <label>Setting 2</label>
+                            <input type="text" class="form-control input-sm" placeholder="Setting 2">
+                        </div>
+                        <div class="form-group">
+                            <label>Setting 3</label>
+                            <input type="text" class="form-control input-sm" placeholder="Setting 3">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-sm">Update</button>
+                    </form>
+                </div>
+            </div><!-- /panel -->
+        </div><!-- /.col -->
     </div>
 </div>
