@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201401060319371_NullableAppointment.Designer.cs">
       <DependentUpon>201401060319371_NullableAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401120019131_AddingTripId.cs" />
+    <Compile Include="Migrations\201401120019131_AddingTripId.Designer.cs">
+      <DependentUpon>201401120019131_AddingTripId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\AirplaneSeed.cs" />
     <Compile Include="Migrations\SeedData\PassengerSeed.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401060319371_NullableAppointment.resx">
       <DependentUpon>201401060319371_NullableAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401120019131_AddingTripId.resx">
+      <DependentUpon>201401120019131_AddingTripId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
