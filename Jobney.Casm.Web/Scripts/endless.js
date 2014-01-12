@@ -44,4 +44,10 @@ $(window).load(function() {
 
 	//Enable animation
 	$('#wrapper').removeClass('preload');
+
+	$('.main-menu>ul>li').removeClass('active');
+
+	$('.main-menu>ul>li>a').filter(function (i, e) {
+	    return e.href == document.location.protocol + '//' + document.location.host + document.location.pathname
+	}).closest('li').addClass('active')
 });
