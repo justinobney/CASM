@@ -17,7 +17,10 @@ namespace Jobney.Casm.Web.Helpers
 
         public JsonNetResult()
         {
-            SerializerSettings = new JsonSerializerSettings();
+            SerializerSettings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
         }
 
         public override void ExecuteResult(ControllerContext context)
@@ -38,6 +41,7 @@ namespace Jobney.Casm.Web.Helpers
             {
                 JsonTextWriter writer = new JsonTextWriter(response.Output) { Formatting = Formatting };
 
+                SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 JsonSerializer serializer = JsonSerializer.Create(SerializerSettings);
                 serializer.Serialize(writer, Data);
 

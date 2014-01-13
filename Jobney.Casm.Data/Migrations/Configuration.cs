@@ -19,6 +19,19 @@ namespace Jobney.Casm.Data.Migrations
                 new Settings { Key = "State", Value = "Louisiana" }
             });
 
+            context.Set<Airplane>().AddOrUpdate(x=>x.CallSign, new Airplane
+            {
+                Name = "SkyBallr",
+                CallSign = "B477R"
+            });
+
+            context.Set<TripStatus>().AddOrUpdate(x => x.Name, new []
+            {
+                new TripStatus { Name = "Pending" },
+                new TripStatus { Name = "Confirmed" },
+                new TripStatus { Name = "Canceled" }
+            });
+
             context.SaveChanges();
 
         }

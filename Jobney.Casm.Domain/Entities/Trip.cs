@@ -17,6 +17,6 @@ namespace Jobney.Casm.Domain.Entities
 
         public ICollection<WaypointPassenger> Passengers { get; set; }
         public ICollection<Pilot> Pilots { get; set; }
-        public ICollection<Waypoint> Waypoints { get; set; }
+        public virtual ICollection<Waypoint> Waypoints { get; set; }
     }
 }
