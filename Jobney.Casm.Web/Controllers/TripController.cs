@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 using Jobney.Casm.Services;
 using Jobney.Casm.Web.Models;
 using Jobney.Casm.Web.ViewModels;
-using Jobney.Core;
-using Jobney.Core.Domain.Interfaces;
 using Newtonsoft.Json;
+using tcdev.Core.Data;
 
 namespace Jobney.Casm.Web.Controllers
 {
@@ -37,8 +35,8 @@ namespace Jobney.Casm.Web.Controllers
         {
             return new TripInfoDataBootstrapper
             {
-                Airplanes = JsonConvert.SerializeObject(airplaneRepository.GetAll().ToList(), jsonSettings),
-                Passengers = JsonConvert.SerializeObject(passengerRepository.GetAll().ToList(), jsonSettings)
+                Airplanes = JsonConvert.SerializeObject(airplaneRepository.Query().ToList(), jsonSettings),
+                Passengers = JsonConvert.SerializeObject(passengerRepository.Query().ToList(), jsonSettings)
             };
         }
         
@@ -81,20 +79,20 @@ namespace Jobney.Casm.Web.Controllers
             var entity = new Waypoint {
                 TripId = waypoint.TripId,
                 City = waypoint.City,
-                State = waypoint.State,
-                Passengers = new List<WaypointPassenger>(),
+                //State = waypoint.State,
+                //Passengers = new List<WaypointPassenger>(),
                 Order = trip.Waypoints.Max(x=>x.Order) + 1
             };
 
-            foreach (var passengerId in waypoint.PassengerIds) {
-                entity.Passengers.Add(
-                    new WaypointPassenger {
-                        PassengerId = passengerId
-                    });
-            }
+            //foreach (var passengerId in waypoint.PassengerIds) {
+            //    entity.Passengers.Add(
+            //        new WaypointPassenger {
+            //            PassengerId = passengerId
+            //        });
+            //}
 
             waypointRepository.InsertOrUpdate(entity);
-            uow.SaveChanges();
+            waypointRepository.CommitChanges();
 
             return JsonResult(new {Success = true, entity});
         }
@@ -118,7 +116,7 @@ namespace Jobney.Casm.Web.Controllers
             
             tripService.ReorderWaypoints(trip, waypointId, newOrder);
             tripRepository.InsertOrUpdate(trip);
-            uow.SaveChanges();
+            tripRepository.CommitChanges();
             
             var tripOrderMap = trip.Waypoints.Select(wp => new {wp.Id, wp.Order });
 
