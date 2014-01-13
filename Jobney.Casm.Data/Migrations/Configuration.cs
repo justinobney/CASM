@@ -1,9 +1,10 @@
-using System.Data.Entity.Migrations;
-using Jobney.Casm.Data.Migrations.SeedData;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.Migrations
 {
-    public sealed class Configuration : DbMigrationsConfiguration<DataContext>
+    using System.Data.Entity.Migrations;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
         public Configuration()
         {
@@ -12,10 +13,14 @@ namespace Jobney.Casm.Data.Migrations
 
         protected override void Seed(DataContext context)
         {
-            new PilotSeed().Seed(context);
-            new PassengerSeed().Seed(context);
-            new AirplaneSeed().Seed(context);
-            new TripSeed().Seed(context);
+            context.Set<Settings>().AddOrUpdate(s => s.Key, new[]
+            {
+                new Settings { Key = "City", Value = "Baton Rouge" },
+                new Settings { Key = "State", Value = "Louisiana" }
+            });
+
+            context.SaveChanges();
+
         }
     }
 }

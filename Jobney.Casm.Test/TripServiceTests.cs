@@ -1,4 +1,4 @@
-﻿using Jobney.Casm.Domain;
+﻿using System.Linq;
 using Jobney.Casm.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

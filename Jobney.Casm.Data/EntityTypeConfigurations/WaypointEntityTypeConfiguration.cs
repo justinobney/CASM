@@ -1,5 +1,5 @@
 using System.Data.Entity.ModelConfiguration;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
@@ -14,6 +14,16 @@ namespace Jobney.Casm.Data.EntityTypeConfigurations
                 .IsRequired();
 
             Property(x => x.State)
+                .IsRequired();
+
+            Property(x => x.Order)
+                .IsRequired();
+
+            HasMany(m => m.Passengers);
+
+            HasMany(m => m.SpecialRequests);
+
+            Property(m => m.TripId)
                 .IsRequired();
         }
     }

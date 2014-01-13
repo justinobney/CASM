@@ -1,8 +1,8 @@
-using Jobney.Core.Domain;
+using tcdev.Core.Domain;
 
-namespace Jobney.Casm.Domain
+namespace Jobney.Casm.Domain.Entities
 {
-    public class PersonBase : Entity
+    public class PersonBase : EntityBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

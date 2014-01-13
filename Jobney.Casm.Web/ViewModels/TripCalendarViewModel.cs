@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Web.ViewModels
 {

@@ -1,6 +1,5 @@
 using Autofac;
-using Jobney.Core;
-using Jobney.Core.Domain.Interfaces;
+using tcdev.Core.Data;
 
 namespace Jobney.Casm.Data.Configuration
 {
@@ -10,10 +9,6 @@ namespace Jobney.Casm.Data.Configuration
         {
             builder.RegisterType<DataContext>()
                 .As<IDbContext>()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<UnitOfWork>()
-                .As<IUnitOfWork>()
                 .InstancePerLifetimeScope();
 
             builder.RegisterGeneric(typeof(Repository<>))

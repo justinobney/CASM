@@ -7,13 +7,13 @@ namespace Jobney.Casm.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class MigrationBlowOut : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationBlowOut));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401050545061_MigrationBlowOut"; }
+            get { return "201401130339504_initial"; }
         }
         
         string IMigrationMetadata.Source

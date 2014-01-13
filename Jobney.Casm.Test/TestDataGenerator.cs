@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Tests
 {
@@ -34,7 +34,7 @@ namespace Jobney.Casm.Tests
                 Departing = DateTime.Now.AddDays(6).AddHours(-5),
                 SpecialRequests = new List<WaypointRequest>
                 {
-                    new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon!!"}
+                    //new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon!!"}
                 }
             };
 
@@ -54,7 +54,7 @@ namespace Jobney.Casm.Tests
                 Departing = DateTime.Now.AddDays(9).AddHours(-5),
                 SpecialRequests = new List<WaypointRequest>
                 {
-                    new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon & Cheese!!"}
+                    //new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon & Cheese!!"}
                 }
             };
 
@@ -72,7 +72,7 @@ namespace Jobney.Casm.Tests
                 Departing = null,
                 SpecialRequests = new List<WaypointRequest>
                 {
-                    new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon!!"}
+                    //new WaypointRequest{Type = WaypointRequestType.Catering, Description = "Make me an Omlete", Notes = "Bacon!!"}
                 }
             };
 

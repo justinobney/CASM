@@ -39,9 +39,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Jobney.Core">
-      <HintPath>..\Dependencies\Jobney.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Jobney.Core.Extensions">
       <HintPath>..\Dependencies\Jobney.Core.Extensions.dll</HintPath>
     </Reference>
@@ -53,6 +50,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="tcdev.Core">
+      <HintPath>..\Dependencies\tcdev.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DataModule.cs" />
@@ -61,34 +61,26 @@
     <Compile Include="EntityTypeConfigurations\AirplaneEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\SettingsEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TripEntityTypeConfiguration.cs" />
-    <Compile Include="EntityTypeConfigurations\TripPilotEntityTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\TripStatusEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointEntityTypeConfiguration.cs" />
-    <Compile Include="EntityTypeConfigurations\WaypointPassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointRequestEntityTypeConfiguration.cs" />
-    <Compile Include="Migrations\201401050545061_MigrationBlowOut.cs" />
-    <Compile Include="Migrations\201401050545061_MigrationBlowOut.Designer.cs">
-      <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
+    <Compile Include="EntityTypeConfigurations\WaypointRequestTypeEntityTypeConfiguration.cs" />
+    <Compile Include="Migrations\201401130339504_initial.cs" />
+    <Compile Include="Migrations\201401130339504_initial.Designer.cs">
+      <DependentUpon>201401130339504_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201401050643252_WaypointDepartingNullable.cs" />
-    <Compile Include="Migrations\201401050643252_WaypointDepartingNullable.Designer.cs">
-      <DependentUpon>201401050643252_WaypointDepartingNullable.cs</DependentUpon>
+    <Compile Include="Migrations\201401130512042_AddingSettings.cs" />
+    <Compile Include="Migrations\201401130512042_AddingSettings.Designer.cs">
+      <DependentUpon>201401130512042_AddingSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201401060319371_NullableAppointment.cs" />
-    <Compile Include="Migrations\201401060319371_NullableAppointment.Designer.cs">
-      <DependentUpon>201401060319371_NullableAppointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201401120019131_AddingTripId.cs" />
-    <Compile Include="Migrations\201401120019131_AddingTripId.Designer.cs">
-      <DependentUpon>201401120019131_AddingTripId.cs</DependentUpon>
+    <Compile Include="Migrations\201401130515490_FixingSettings.cs" />
+    <Compile Include="Migrations\201401130515490_FixingSettings.Designer.cs">
+      <DependentUpon>201401130515490_FixingSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\SeedData\AirplaneSeed.cs" />
-    <Compile Include="Migrations\SeedData\PassengerSeed.cs" />
-    <Compile Include="Migrations\SeedData\PilotSeed.cs" />
-    <Compile Include="Migrations\SeedData\TripSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,17 +95,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401050545061_MigrationBlowOut.resx">
-      <DependentUpon>201401050545061_MigrationBlowOut.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201401130339504_initial.resx">
+      <DependentUpon>201401130339504_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401050643252_WaypointDepartingNullable.resx">
-      <DependentUpon>201401050643252_WaypointDepartingNullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201401130512042_AddingSettings.resx">
+      <DependentUpon>201401130512042_AddingSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401060319371_NullableAppointment.resx">
-      <DependentUpon>201401060319371_NullableAppointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201401120019131_AddingTripId.resx">
-      <DependentUpon>201401120019131_AddingTripId.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201401130515490_FixingSettings.resx">
+      <DependentUpon>201401130515490_FixingSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

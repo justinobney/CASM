@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 using Jobney.Casm.Web.ViewModels;
-using Jobney.Core.Domain.Interfaces;
 using Newtonsoft.Json;
+using tcdev.Core.Data;
 
 namespace Jobney.Casm.Web.Controllers
 {
@@ -24,7 +24,7 @@ namespace Jobney.Casm.Web.Controllers
             var vm = new TripCalendarViewModel
             {
                 TripsJson = JsonConvert.SerializeObject(GetTrips(), jsonSettings),
-                Airplanes = airplaneRepository.GetAll()
+                Airplanes = airplaneRepository.Query().ToList()
             };
             return View(vm);
         }

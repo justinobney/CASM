@@ -1,5 +1,5 @@
 using System.Data.Entity.ModelConfiguration;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
@@ -13,11 +13,17 @@ namespace Jobney.Casm.Data.EntityTypeConfigurations
             Property(x => x.Name)
                 .IsRequired();
 
+            Property(m => m.StatusId)
+                .IsRequired();
+
             Property(x => x.AirplaneId)
                 .IsRequired();
 
-            Property(x => x.ScheduledBy)
-                .IsRequired();
+            HasMany(m => m.Passengers);
+
+            HasMany(m => m.Pilots);
+
+            HasMany(m => m.Waypoints);
         }
     }
 }

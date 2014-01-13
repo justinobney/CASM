@@ -1,16 +1,9 @@
-﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Features.ResolveAnything;
 using Autofac.Integration.Mvc;
 using DotNetDoodle.Owin;
-using DotNetDoodle.Owin.Dependencies;
 using DotNetDoodle.Owin.Dependencies.Autofac;
-using Jobney.Casm.Data;
-using Jobney.Core.Domain;
-using Jobney.Core.Domain.Interfaces;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;

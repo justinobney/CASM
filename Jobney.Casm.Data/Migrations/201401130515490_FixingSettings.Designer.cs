@@ -7,13 +7,13 @@ namespace Jobney.Casm.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class NullableAppointment : IMigrationMetadata
+    public sealed partial class FixingSettings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NullableAppointment));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixingSettings));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401060319371_NullableAppointment"; }
+            get { return "201401130515490_FixingSettings"; }
         }
         
         string IMigrationMetadata.Source
