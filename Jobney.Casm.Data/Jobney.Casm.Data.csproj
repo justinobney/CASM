@@ -51,7 +51,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="tcdev.Core">
-      <HintPath>..\..\..\TcDev\tcdev.Core\tcdev.Core\bin\Release\tcdev.Core.dll</HintPath>
+      <HintPath>..\Dependencies\tcdev.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

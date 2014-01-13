@@ -113,9 +113,8 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="tcdev.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\TcDev\tcdev.Core\tcdev.Core\bin\Release\tcdev.Core.dll</HintPath>
+    <Reference Include="tcdev.Core">
+      <HintPath>..\Dependencies\tcdev.Core.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
