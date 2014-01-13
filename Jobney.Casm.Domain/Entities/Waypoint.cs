@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Jobney.Core.Domain;
+using tcdev.Core.Domain;
 
-namespace Jobney.Casm.Domain
+namespace Jobney.Casm.Domain.Entities
 {
-    public class Waypoint : Entity
+    public class Waypoint : EntityBase
     {
         public int Order { get; set; }
         public string City { get; set; }
@@ -17,9 +17,11 @@ namespace Jobney.Casm.Domain
         public DateTime? Appointment { get; set; }
         public string AppointmentLocation { get; set; }
         public string Notes { get; set; }
-        public List<WaypointPassenger> Passengers { get; set; }
-        public List<WaypointRequest> SpecialRequests { get; set; }
+
+        public ICollection<WaypointRequest> SpecialRequests { get; set; }
+        public ICollection<WaypointPassenger> Passengers { get; set; }
 
         public int TripId { get; set; }
+        public Trip Trip { get; set; }
     }
 }
