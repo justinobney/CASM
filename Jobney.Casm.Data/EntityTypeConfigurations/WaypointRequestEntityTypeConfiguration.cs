@@ -1,5 +1,5 @@
 using System.Data.Entity.ModelConfiguration;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
@@ -11,6 +11,12 @@ namespace Jobney.Casm.Data.EntityTypeConfigurations
                 .IsRequired();
 
             Property(x => x.Description)
+                .IsRequired();
+
+            Property(x => x.TypeId)
+                .IsRequired();
+
+            Property(x => x.WaypointId)
                 .IsRequired();
         }
     }

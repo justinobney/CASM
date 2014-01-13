@@ -2,8 +2,8 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Jobney.Casm.Data.EntityTypeConfigurations;
-using Jobney.Core.Domain;
-using Jobney.Core.Domain.Interfaces;
+using tcdev.Core.Data;
+using tcdev.Core.Domain;
 
 namespace Jobney.Casm.Data
 {
@@ -17,21 +17,22 @@ namespace Jobney.Casm.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations
-                .Add(new PilotEntityTypeConfiguration())
+                .Add(new AirplaneEntityTypeConfiguration())
                 .Add(new PassengerEntityTypeConfiguration())
-                .Add(new WaypointEntityTypeConfiguration())
-                .Add(new WaypointPassengerEntityTypeConfiguration())
-                .Add(new WaypointRequestEntityTypeConfiguration())
+                .Add(new PilotEntityTypeConfiguration())
                 .Add(new TripEntityTypeConfiguration())
-                .Add(new TripPilotEntityTypeConfiguration());
+                .Add(new TripStatusEntityTypeConfiguration())
+                .Add(new WaypointEntityTypeConfiguration())
+                .Add(new WaypointRequestEntityTypeConfiguration())
+                .Add(new WaypointRequestTypeEntityTypeConfiguration());
         }
 
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entity
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : EntityBase
         {
             return base.Set<TEntity>(); ;
         }
 
-        public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity : Entity
+        public new DbEntityEntry Entry<TEntity>(TEntity entity) where TEntity : EntityBase
         {
             return base.Entry(entity);
         }

@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity.ModelConfiguration;
-using Jobney.Casm.Domain;
+using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
@@ -12,6 +12,8 @@ namespace Jobney.Casm.Data.EntityTypeConfigurations
 
             Property(x => x.EmailAddress)
                 .IsRequired();
+
+            HasMany(m => m.Trips);
         }
     }
 }

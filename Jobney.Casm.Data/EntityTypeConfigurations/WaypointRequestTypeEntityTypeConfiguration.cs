@@ -1,20 +1,16 @@
-﻿
 using System.Data.Entity.ModelConfiguration;
 using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
-    public class PilotEntityTypeConfiguration : EntityTypeConfiguration<Pilot>
+    public class WaypointRequestTypeEntityTypeConfiguration : EntityTypeConfiguration<WaypointRequestType>
     {
-        public PilotEntityTypeConfiguration()
-        {
+        public WaypointRequestTypeEntityTypeConfiguration() {
             Property(x => x.Id)
                 .IsRequired();
 
-            Property(x => x.EmailAddress)
+            Property(x => x.Name)
                 .IsRequired();
-
-            HasMany(m => m.Trips);
         }
     }
 }

@@ -1,20 +1,16 @@
-﻿
 using System.Data.Entity.ModelConfiguration;
 using Jobney.Casm.Domain.Entities;
 
 namespace Jobney.Casm.Data.EntityTypeConfigurations
 {
-    public class PilotEntityTypeConfiguration : EntityTypeConfiguration<Pilot>
+    public class TripStatusEntityTypeConfiguration : EntityTypeConfiguration<TripStatus>
     {
-        public PilotEntityTypeConfiguration()
-        {
+        public TripStatusEntityTypeConfiguration() {
             Property(x => x.Id)
                 .IsRequired();
 
-            Property(x => x.EmailAddress)
+            Property(m => m.Name)
                 .IsRequired();
-
-            HasMany(m => m.Trips);
         }
     }
 }

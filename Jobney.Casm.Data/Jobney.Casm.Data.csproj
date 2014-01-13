@@ -39,9 +39,6 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Jobney.Core">
-      <HintPath>..\Dependencies\Jobney.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Jobney.Core.Extensions">
       <HintPath>..\Dependencies\Jobney.Core.Extensions.dll</HintPath>
     </Reference>
@@ -53,6 +50,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="tcdev.Core">
+      <HintPath>..\..\..\TcDev\tcdev.Core\tcdev.Core\bin\Release\tcdev.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\DataModule.cs" />
@@ -62,9 +62,8 @@
     <Compile Include="EntityTypeConfigurations\PassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TripEntityTypeConfiguration.cs" />
-    <Compile Include="EntityTypeConfigurations\TripPilotEntityTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\TripStatusEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointEntityTypeConfiguration.cs" />
-    <Compile Include="EntityTypeConfigurations\WaypointPassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointRequestEntityTypeConfiguration.cs" />
     <Compile Include="Migrations\201401050545061_MigrationBlowOut.cs" />
     <Compile Include="Migrations\201401050545061_MigrationBlowOut.Designer.cs">
@@ -81,6 +80,7 @@
     <Compile Include="Migrations\201401120019131_AddingTripId.cs" />
     <Compile Include="Migrations\201401120019131_AddingTripId.Designer.cs">
       <DependentUpon>201401120019131_AddingTripId.cs</DependentUpon>
+    <Compile Include="EntityTypeConfigurations\WaypointRequestTypeEntityTypeConfiguration.cs" />
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\AirplaneSeed.cs" />
