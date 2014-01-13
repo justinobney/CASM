@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Jobney.Casm.Domain.Entities;
@@ -79,17 +80,19 @@ namespace Jobney.Casm.Web.Controllers
             var entity = new Waypoint {
                 TripId = waypoint.TripId,
                 City = waypoint.City,
-                //State = waypoint.State,
-                //Passengers = new List<WaypointPassenger>(),
+                State = waypoint.State,
+                Passengers = new List<WaypointPassenger>(),
                 Order = trip.Waypoints.Max(x=>x.Order) + 1
             };
 
-            //foreach (var passengerId in waypoint.PassengerIds) {
-            //    entity.Passengers.Add(
-            //        new WaypointPassenger {
-            //            PassengerId = passengerId
-            //        });
-            //}
+            foreach (var passengerId in waypoint.PassengerIds)
+            {
+                entity.Passengers.Add(
+                    new WaypointPassenger
+                    {
+                        PassengerId = passengerId
+                    });
+            }
 
             waypointRepository.InsertOrUpdate(entity);
             waypointRepository.CommitChanges();
