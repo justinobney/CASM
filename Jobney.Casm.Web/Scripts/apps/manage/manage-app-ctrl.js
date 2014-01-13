@@ -33,6 +33,14 @@
             function ($scope, BootstrappedData) {
                 $scope.airplanes = BootstrappedData.airplanes;
             }
-    ]
+        ]
     );
+
+    app.controller('SettingsCtrl', [
+            '$scope', 'BootstrappedData',
+            function ($scope, BootstrappedData) {
+                $scope.settings = BootstrappedData.settings;
+            }
+        ]
+    ); 
 })();

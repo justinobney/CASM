@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using Jobney.Casm.Domain.Entities;
 using Jobney.Casm.Web.Models;
-using Jobney.Casm.Web.ViewModels;
 using Newtonsoft.Json;
 using tcdev.Core.Data;
 
@@ -13,12 +12,18 @@ namespace Jobney.Casm.Web.Controllers
         private readonly IRepository<Pilot> pilotRepository;
         private readonly IRepository<Passenger> passengerRepository;
         private readonly IRepository<Airplane> airplaneRepository;
+        private readonly IRepository<Settings> settingsRepository;
 
-        public ManageController(IRepository<Pilot> pilotRepository, IRepository<Passenger> passengerRepository, IRepository<Airplane> airplaneRepository)
+        public ManageController(
+            IRepository<Pilot> pilotRepository, 
+            IRepository<Passenger> passengerRepository, 
+            IRepository<Airplane> airplaneRepository,
+            IRepository<Settings> settingsRepository)
         {
             this.pilotRepository = pilotRepository;
             this.passengerRepository = passengerRepository;
             this.airplaneRepository = airplaneRepository;
+            this.settingsRepository = settingsRepository;
         }
 
         // GET: /Manage/
@@ -35,7 +40,7 @@ namespace Jobney.Casm.Web.Controllers
                 Pilots = JsonConvert.SerializeObject(pilotRepository.Query().ToList(), jsonSettings),
                 Passengers = JsonConvert.SerializeObject(passengerRepository.Query().ToList(), jsonSettings),
                 Airplanes = JsonConvert.SerializeObject(airplaneRepository.Query().ToList(), jsonSettings),
-                Settings = JsonConvert.SerializeObject(new CasmSettingsViewModel(), jsonSettings)
+                Settings = JsonConvert.SerializeObject(settingsRepository.Query().ToList(), jsonSettings)
             };
         }
     }
