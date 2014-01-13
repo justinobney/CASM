@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -17,18 +18,21 @@ namespace Jobney.Casm.Web.Controllers
         private readonly IRepository<Waypoint> waypointRepository; 
         private readonly IRepository<Airplane> airplaneRepository;
         private readonly IRepository<Passenger> passengerRepository;
+        private readonly IRepository<Settings> settingsRepository;
         private readonly TripService tripService;
 
         public TripController(IRepository<Trip> tripRepository,
                               IRepository<Waypoint> waypointRepository,
-                              IRepository<Airplane> airplaneRepository, 
-                              IRepository<Passenger> passengerRepository, 
+                              IRepository<Airplane> airplaneRepository,
+                              IRepository<Passenger> passengerRepository,
+                              IRepository<Settings> settingsRepository,
                               TripService tripService)
         {
             this.tripRepository = tripRepository;
             this.waypointRepository = waypointRepository;
             this.airplaneRepository = airplaneRepository;
             this.passengerRepository = passengerRepository;
+            this.settingsRepository = settingsRepository;
             this.tripService = tripService;
         }
 
@@ -101,15 +105,23 @@ namespace Jobney.Casm.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult QuickAdd(TripQuickAddViewModel waypoint)
+        public ActionResult QuickAdd(TripQuickAddViewModel vm)
         {
-            // Build trip
-            // Look default departure from settings
-            // Create default departure waypoint // use trip date as departing time
-            // Create arriving waypoint //use trip date as arriving time
-            return JsonResult(new { Success = true, waypoint });
-        }
+            var trip = new Trip
+            {
+                StatusId = 1,
+                AirplaneId = vm.AirplaneId,
+                Name = vm.TripName,
+                Waypoints = new Collection<Waypoint>()
+            };
+            trip.Waypoints.Add(QuickAddDepartingWaypoint(vm));
+            trip.Waypoints.Add(QuickAddArrivingWaypoint(vm));
+            tripRepository.InsertOrUpdate(trip);
+            tripRepository.CommitChanges();
 
+            return JsonResult(new { Success = true, trip });
+        }
+        
         [HttpPost]
         public ActionResult ReorderWaypoint(int id, int waypointId, int newOrder)
         {
@@ -124,6 +136,29 @@ namespace Jobney.Casm.Web.Controllers
             var tripOrderMap = trip.Waypoints.Select(wp => new {wp.Id, wp.Order });
 
             return JsonResult(new {Success = true, tripOrderMap});
+        }
+
+        private Waypoint QuickAddDepartingWaypoint(TripQuickAddViewModel vm)
+        {
+            var settings = settingsRepository.Query().ToList();
+            return new Waypoint
+            {
+                Order = 1,
+                City = settings.First(s => s.Key == "City").Value,
+                State = settings.First(s => s.Key == "State").Value,
+                Departing = vm.DepartingDate
+            };
+        }
+        
+        private Waypoint QuickAddArrivingWaypoint(TripQuickAddViewModel vm)
+        {
+            return new Waypoint
+            {
+                Order = 2,
+                City = vm.City,
+                State = vm.State,
+                Arriving = vm.DepartingDate
+            };
         }
     }
 }

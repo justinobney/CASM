@@ -49,7 +49,8 @@
                     .fullCalendar('renderEvent',
                         {
                             title: $('#NewTripTitle').val(),
-                            start: $('#NewTripDate').val()
+                            start: $('#NewTripDate').val(),
+                            url: urlMap.tripInfoBase + '/#/edit/' + response.trip.id
                         },
                         true // make the event "stick"
                     );
