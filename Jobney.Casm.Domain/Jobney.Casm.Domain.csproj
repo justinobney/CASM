@@ -49,6 +49,7 @@
     <Compile Include="Entities\Passenger.cs" />
     <Compile Include="Entities\PersonBase.cs" />
     <Compile Include="Entities\Pilot.cs" />
+    <Compile Include="Entities\Settings.cs" />
     <Compile Include="Entities\WaypointPassenger.cs" />
     <Compile Include="Entities\WaypointPassengerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -61,6 +61,7 @@
     <Compile Include="EntityTypeConfigurations\AirplaneEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PassengerEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\PilotEntityTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\SettingsEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TripEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\TripStatusEntityTypeConfiguration.cs" />
     <Compile Include="EntityTypeConfigurations\WaypointEntityTypeConfiguration.cs" />
@@ -69,6 +70,14 @@
     <Compile Include="Migrations\201401130339504_initial.cs" />
     <Compile Include="Migrations\201401130339504_initial.Designer.cs">
       <DependentUpon>201401130339504_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401130512042_AddingSettings.cs" />
+    <Compile Include="Migrations\201401130512042_AddingSettings.Designer.cs">
+      <DependentUpon>201401130512042_AddingSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401130515490_FixingSettings.cs" />
+    <Compile Include="Migrations\201401130515490_FixingSettings.Designer.cs">
+      <DependentUpon>201401130515490_FixingSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +97,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201401130339504_initial.resx">
       <DependentUpon>201401130339504_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401130512042_AddingSettings.resx">
+      <DependentUpon>201401130512042_AddingSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401130515490_FixingSettings.resx">
+      <DependentUpon>201401130515490_FixingSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

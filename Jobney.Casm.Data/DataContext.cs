@@ -20,6 +20,7 @@ namespace Jobney.Casm.Data
                 .Add(new AirplaneEntityTypeConfiguration())
                 .Add(new PassengerEntityTypeConfiguration())
                 .Add(new PilotEntityTypeConfiguration())
+                .Add(new SettingsEntityTypeConfiguration())
                 .Add(new TripEntityTypeConfiguration())
                 .Add(new TripStatusEntityTypeConfiguration())
                 .Add(new WaypointEntityTypeConfiguration())
