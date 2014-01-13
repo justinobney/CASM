@@ -7,13 +7,13 @@ namespace Jobney.Casm.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.2-21211")]
-    public sealed partial class AddingTripId : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingTripId));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201401120019131_AddingTripId"; }
+            get { return "201401130339504_initial"; }
         }
         
         string IMigrationMetadata.Source
