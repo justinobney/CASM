@@ -89,13 +89,16 @@ namespace Jobney.Casm.Web.Controllers
                 Order = trip.Waypoints.Max(x=>x.Order) + 1
             };
 
-            foreach (var passengerId in waypoint.PassengerIds)
+            if (waypoint.PassengerIds != null)
             {
-                entity.Passengers.Add(
-                    new WaypointPassenger
-                    {
-                        PassengerId = passengerId
-                    });
+                foreach (var passengerId in waypoint.PassengerIds)
+                {
+                    entity.Passengers.Add(
+                        new WaypointPassenger
+                        {
+                            PassengerId = passengerId
+                        });
+                }
             }
 
             waypointRepository.InsertOrUpdate(entity);
