@@ -15,6 +15,7 @@ namespace Jobney.Casm.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutofacConfiguration.Configure();
+            AutoMapperWebConfiguration.Configure();
             DatabaseUpgrader.PerformUpgrade();
         }
     }
