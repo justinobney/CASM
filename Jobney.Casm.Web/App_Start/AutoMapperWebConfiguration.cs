@@ -8,6 +8,7 @@ namespace Jobney.Casm.Web
     {
         public static void Configure()
         {
+            Mapper.CreateMap<Pilot, ManagePilotViewModel>().ReverseMap();
         }
     }
 }

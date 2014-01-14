@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PilotController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -230,9 +231,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
     <Content Include="Scripts\apps\manage\manage-app-ctrl.js" />
+    <Content Include="Scripts\apps\manage\manage-pilot-ctrl.js" />
     <Content Include="Scripts\apps\manage\templates\airplanes.html" />
     <Content Include="Scripts\apps\manage\templates\passengers.html" />
     <Content Include="Scripts\apps\manage\templates\settings.html" />
+    <Content Include="Scripts\apps\shared\pilot-service.js" />
     <Content Include="Scripts\apps\shared\trip-service.js" />
     <Content Include="Scripts\apps\tripinfo\edit-trip-ctrl.js" />
     <Content Include="Scripts\apps\tripinfo\templates\edit.html" />

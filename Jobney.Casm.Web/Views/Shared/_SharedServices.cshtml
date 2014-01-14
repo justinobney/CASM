@@ -17,6 +17,11 @@
                 getById: '@Url.Action("GetById", "Trip")',
                 reorderWaypoint: '@Url.Action("ReorderWaypoint", "Trip")',
                 createWaypoint: '@Url.Action("CreateWaypoint", "Trip")'
+            },
+            pilot: {
+                getById: '@Url.Action("GetById", "Pilot")' + '/',
+                query: '@Url.Action("Query", "Pilot")' + '/',
+                save: '@Url.Action("Save", "Pilot")' + '/'
             }
         });
     })();

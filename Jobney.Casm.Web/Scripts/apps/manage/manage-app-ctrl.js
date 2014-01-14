@@ -12,14 +12,6 @@
         }
     ]);
 
-    app.controller('ManagePilotsCtrl', [
-            '$scope', 'BootstrappedData',
-            function($scope, BootstrappedData) {
-                $scope.pilots = BootstrappedData.pilots;
-            }
-        ]
-    );
-
     app.controller('ManagePassengersCtrl', [
             '$scope', 'BootstrappedData',
             function ($scope, BootstrappedData) {
