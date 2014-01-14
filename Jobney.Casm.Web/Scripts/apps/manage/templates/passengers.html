@@ -61,23 +61,29 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    New/Edit Passenger
+                    {{mode}} Passenger
+                    <span ng-show="editing" class="label label-danger pull-right">EDITING</span>
                 </div>
                 <div class="panel-body">
-                    <form>
+                    <form ng-submit="savePassenger()">
                         <div class="form-group">
-                            <label>Setting 1</label>
-                            <input type="text" class="form-control input-sm" placeholder="Setting 1">
+                            <label>First Name</label>
+                            <input ng-model="activePassenger.firstName" type="text" class="form-control input-sm" placeholder="John">
                         </div>
                         <div class="form-group">
-                            <label>Setting 2</label>
-                            <input type="text" class="form-control input-sm" placeholder="Setting 2">
+                            <label>Last Name</label>
+                            <input ng-model="activePassenger.lastName" type="text" class="form-control input-sm" placeholder="Doe">
                         </div>
                         <div class="form-group">
-                            <label>Setting 3</label>
-                            <input type="text" class="form-control input-sm" placeholder="Setting 3">
+                            <label>Email</label>
+                            <input ng-model="activePassenger.emailAddress" type="email" class="form-control input-sm" placeholder="joe@aol.com">
                         </div>
-                        <button type="submit" class="btn btn-success btn-sm">Update</button>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input ng-model="activePassenger.phoneNumber" type="text" class="form-control input-sm" placeholder="1-800-551-8900">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-sm">{{mode}}</button>
+                        <button ng-click="cancelEdit()" ng-show="editing" type="button" class="btn-link">Cancel</button>
                     </form>
                 </div>
             </div><!-- /panel -->

@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PassengerController.cs" />
     <Compile Include="Controllers\PilotController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +209,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FullCalendarViewModel.cs" />
+    <Compile Include="ViewModels\Manage\ManagePassengerViewModel.cs" />
     <Compile Include="ViewModels\Manage\ManagePilotViewModel.cs" />
     <Compile Include="ViewModels\NewWaypointViewModel.cs" />
     <Compile Include="ViewModels\TripCalendarViewModel.cs" />

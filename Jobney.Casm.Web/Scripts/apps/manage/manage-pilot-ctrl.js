@@ -39,4 +39,41 @@
             }
         ]
     );
+
+    app.controller('ManagePassengersCtrl', [
+            '$scope', 'BootstrappedData', 'PassengerService',
+            function ($scope, BootstrappedData, PassengerService) {
+                $scope.passengers = BootstrappedData.passengers;
+
+                $scope.savePassenger = function () {
+                    PassengerService.save($scope.activePassenger).then(function () {
+                        PassengerService.query().then(function (data) {
+                            $scope.passengers = BootstrappedData.passengers = data;
+                            $scope.activePassenger = PassengerService.newPassenger();
+                        });
+                    });
+                };
+
+                $scope.editPassenger = function (passenger) {
+                    PassengerService.getById(passenger.id).then(function (entity) {
+                        $scope.activePassenger = entity;
+                    });
+                };
+
+                $scope.cancelEdit = function () {
+                    $scope.activePassenger = PassengerService.newPassenger();
+                };
+
+                init();
+                function init() {
+                    $scope.activePassenger = PassengerService.newPassenger();
+                    $scope.$watch('activePassenger', function (val) {
+                        $scope.editing = (val && val.id);
+                        $scope.mode = ($scope.editing) ? 'Edit' : 'Create';
+                    });
+                }
+
+            }
+    ]
+    );
 })();

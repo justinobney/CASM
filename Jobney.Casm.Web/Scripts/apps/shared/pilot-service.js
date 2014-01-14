@@ -48,4 +48,50 @@
             }
         ]
     );
+
+    app.factory('PassengerService', [
+            '$http', 'ServiceRoutes',
+            function ($http, ServiceRoutes) {
+                var service = {};
+
+                service.passengers = [];
+
+                service.newPassenger = function () {
+                    return {
+                        id: 0,
+                        firstName: '',
+                        lastName: '',
+                        emailAddress: '',
+                        phoneNumber: ''
+                    };
+                };
+
+                service.getById = function (id) {
+                    var url = ServiceRoutes.passenger.getById + id;
+
+                    return $http.get(url).then(function (response) {
+                        return response.data;
+                    });
+                };
+
+                service.query = function () {
+                    var url = ServiceRoutes.passenger.query;
+
+                    return $http.get(url).then(function (response) {
+                        return response.data;
+                    });
+                };
+
+                service.save = function (passenger) {
+                    var url = ServiceRoutes.passenger.save;
+
+                    return $http.post(url, passenger).then(function (response) {
+                        return response.data;
+                    });
+                };
+
+                return service;
+            }
+    ]
+    );
 })();
