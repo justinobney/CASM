@@ -11,7 +11,7 @@
                 $scope.savePilot = function() {
                     PilotService.save($scope.activePilot).then(function () {
                         PilotService.query().then(function(data) {
-                            $scope.pilots = data;
+                            $scope.pilots = BootstrappedData.pilots = data;
                             $scope.activePilot = PilotService.newPilot();
                         });
                     });
