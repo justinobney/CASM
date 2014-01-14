@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Jobney.Casm.Domain.Entities;
+using Jobney.Casm.Services;
 using Jobney.Casm.Web.Models;
 using Newtonsoft.Json;
 using tcdev.Core.Data;
@@ -9,20 +10,12 @@ namespace Jobney.Casm.Web.Controllers
 {
     public class ManageController : BaseController
     {
-        private readonly IRepository<Pilot> pilotRepository;
-        private readonly IRepository<Passenger> passengerRepository;
-        private readonly IRepository<Airplane> airplaneRepository;
+        private readonly ListDataService listData;
         private readonly IRepository<Settings> settingsRepository;
 
-        public ManageController(
-            IRepository<Pilot> pilotRepository, 
-            IRepository<Passenger> passengerRepository, 
-            IRepository<Airplane> airplaneRepository,
-            IRepository<Settings> settingsRepository)
+        public ManageController(ListDataService listData, IRepository<Settings> settingsRepository)
         {
-            this.pilotRepository = pilotRepository;
-            this.passengerRepository = passengerRepository;
-            this.airplaneRepository = airplaneRepository;
+            this.listData = listData;
             this.settingsRepository = settingsRepository;
         }
 
@@ -37,9 +30,9 @@ namespace Jobney.Casm.Web.Controllers
         {
             return new ManageDataBootstrapper
             {
-                Pilots = JsonConvert.SerializeObject(pilotRepository.Query().ToList(), jsonSettings),
-                Passengers = JsonConvert.SerializeObject(passengerRepository.Query().ToList(), jsonSettings),
-                Airplanes = JsonConvert.SerializeObject(airplaneRepository.Query().ToList(), jsonSettings),
+                Pilots = JsonConvert.SerializeObject(listData.Pilots.Query().ToList(), jsonSettings),
+                Passengers = JsonConvert.SerializeObject(listData.Passengers.Query().ToList(), jsonSettings),
+                Airplanes = JsonConvert.SerializeObject(listData.Airplanes.Query().ToList(), jsonSettings),
                 Settings = JsonConvert.SerializeObject(settingsRepository.Query().ToList(), jsonSettings)
             };
         }
