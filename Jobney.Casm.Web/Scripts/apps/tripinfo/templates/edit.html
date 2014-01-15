@@ -79,6 +79,14 @@
                                 <td ng-class="{'drag-handle': state.reorder}">
                                     <div>
                                         {{location.city}}, {{location.state}}
+                                        <div class="pull-right waypoint-times">
+                                            <div ng-show="location.arriving && !$first" class="text-right">
+                                                <strong>Arriving:</strong>
+                                                <span ng-hide="open">{{location.arriving | date:'short'}}</span>
+                                                <input ng-show="open" type="text" ng-model="location.arriving" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
                                     </div>
                                     <div data-ng-show="open">
                                         <hr>
@@ -124,18 +132,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                </td>
-                                <td width="75px">
-                                    <span ng-show="location.arriving">
-                                        <strong>arriving:</strong>
-                                        {{location.arriving | date:'short'}}
-                                    </span>
-                                </td>
-                                <td width="75px">
-                                    <span ng-show="location.departing">
-                                        <strong>departing:</strong>
-                                        {{location.departing | date:'short'}}
-                                    </span>
+                                    <div>
+                                        <div class="pull-right waypoint-times">
+                                            <div ng-show="location.departing && !$last" class="text-right">
+                                                <strong>Departing:</strong>
+                                                <span ng-hide="open">{{location.departing | date:'short'}}</span>
+                                                <input ng-show="open" type="text" ng-model="location.departing" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
                                 </td>
                                 <td width="25px" ng-class="{'drag-handle': state.reorder}">
                                     <i class="fa fa-arrows-v" ng-show="state.reorder"></i>

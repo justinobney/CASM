@@ -85,6 +85,11 @@ tr:hover .trip-remove {
     display: initial;
 }
 
+.waypoint-times .form-control {
+    width: 150px;
+    display: inline;
+}
+
 /*#endregion */
 
 /*#region Home Page */
