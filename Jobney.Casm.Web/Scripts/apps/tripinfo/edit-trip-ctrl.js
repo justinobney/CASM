@@ -3,8 +3,9 @@
 
     var app = angular.module('Jobney.Casm.TripInfoApp');
 
-    app.controller('EditTripCtrl', ['$scope', '$stateParams', '$rootScope', 'TripService', 'BootstrappedData',
-        function ($scope, $stateParams, $rootScope, TripService, BootstrappedData) {
+    app.controller('EditTripCtrl', [
+        '$scope', '$stateParams', '$rootScope', 'TripService', 'BootstrappedData', 'toaster',
+        function($scope, $stateParams, $rootScope, TripService, BootstrappedData, toaster) {
 
             $scope.addStop = function() {
                 var convertedPlace = convertPlaceResultToPlace($scope.details);
@@ -30,7 +31,7 @@
 
                 $scope.sortableOptions = {
                     placeholder: "drop-placeholder",
-                    update: function (e, ui) {
+                    update: function(e, ui) {
                         setTimeout(function() {
                             var waypointId = ui.item.scope().location.id;
                             var newOrder = ui.item.index() + 1;
@@ -65,38 +66,42 @@
                 return place;
 
                 function find(typeName) {
-                    var found = _.find(placeResult.address_components, function (val) {
+                    var found = _.find(placeResult.address_components, function(val) {
                         return val.types.indexOf(typeName) > -1;
                     });
 
                     return (found) ? found.long_name : '';
                 }
+
             };
 
             function handleWaypointReorder(waypointId, newOrder) {
                 var tripId = $scope.trip.id;
 
-                TripService.ReorderWaypoint(tripId, waypointId, newOrder).then(function (response) {
-                    _.each($scope.trip.waypoints, function (wp, idx) {
+                TripService.ReorderWaypoint(tripId, waypointId, newOrder).then(function(response) {
+                    _.each($scope.trip.waypoints, function(wp, idx) {
                         wp.order = _.findWhere(response.tripOrderMap, { id: wp.id }).order;
                     });
                     $rootScope.$broadcast('select2::reInit', null);
+                    toaster.pop('success', "Locations Re-ordered", '', 3000, 'trustedHtml');
                 });
             };
 
             function setupWatches() {
-                $scope.$watch(function () { return $scope.details; }, handleDetailsUpdate);
+                $scope.$watch(function() { return $scope.details; }, handleDetailsUpdate);
             }
 
             function handleDetailsUpdate(newVal, oldVal, scope) {
                 if (newVal && newVal.geometry)
                     $scope.center = newVal.geometry.location;
             }
+
         }
     ]);
 
-    app.controller('TripWaypointCtrl', ['$scope', 'TripService',
-        function ($scope, TripService) {
+    app.controller('TripWaypointCtrl', [
+        '$scope', 'TripService', 'toaster',
+        function($scope, TripService, toaster) {
 
             activate();
 
@@ -110,14 +115,16 @@
             }
 
             function handleWaypointUpdate(current, previous, scope) {
-                if(previous && current != previous)
+                if (previous && current != previous && current.order == previous.order)
                     save(arguments);
             }
 
             function save() {
-                console.log('location updated: ', $scope.location);
+                $scope.$apply(function() {
+                    toaster.pop('success', "Location Updated", 'NOT YET IMPLEMENTED', 3000, 'trustedHtml');
+                });
             }
 
         }
     ]);
-})()
+})();
