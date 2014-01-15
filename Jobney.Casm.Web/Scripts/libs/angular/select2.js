@@ -195,22 +195,25 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
           });
         }
 
+        scope.$on('select2::reInit', doIt);
         // Initialize the plugin late so that the injected DOM does not disrupt the template compiler
-        $timeout(function () {
-          elm.select2(opts);
+        $timeout(doIt);
 
-          // Set initial value - I'm not sure about this but it seems to need to be there
-          elm.val(controller.$viewValue);
-          // important!
-          controller.$render();
+        function doIt() {
+            elm.select2(opts);
 
-          // Not sure if I should just check for !isSelect OR if I should check for 'tags' key
-          if (!opts.initSelection && !isSelect) {
-            controller.$setViewValue(
-              convertToAngularModel(elm.select2('data'))
-            );
-          }
-        });
+            // Set initial value - I'm not sure about this but it seems to need to be there
+            elm.val(controller.$viewValue);
+            // important!
+            controller.$render();
+
+            // Not sure if I should just check for !isSelect OR if I should check for 'tags' key
+            if (!opts.initSelection && !isSelect) {
+                controller.$setViewValue(
+                  convertToAngularModel(elm.select2('data'))
+                );
+            }
+        }
       };
     }
   };

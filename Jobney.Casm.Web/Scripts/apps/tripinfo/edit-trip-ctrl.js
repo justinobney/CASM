@@ -3,8 +3,8 @@
 
     var app = angular.module('Jobney.Casm.TripInfoApp');
 
-    app.controller('EditTripCtrl', ['$scope', '$stateParams', 'TripService', 'BootstrappedData',
-        function ($scope, $stateParams, TripService, BootstrappedData) {
+    app.controller('EditTripCtrl', ['$scope', '$stateParams', '$rootScope', 'TripService', 'BootstrappedData',
+        function ($scope, $stateParams, $rootScope, TripService, BootstrappedData) {
 
             $scope.addStop = function() {
                 var convertedPlace = convertPlaceResultToPlace($scope.details);
@@ -80,6 +80,7 @@
                     _.each($scope.trip.waypoints, function (wp, idx) {
                         wp.order = _.findWhere(response.tripOrderMap, { id: wp.id }).order;
                     });
+                    $rootScope.$broadcast('select2::reInit', null);
                 });
             };
 
