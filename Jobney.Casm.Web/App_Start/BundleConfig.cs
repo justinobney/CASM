@@ -28,7 +28,9 @@ namespace Jobney.Casm.Web
                         "~/Scripts/libs/angular/angular.js",
                         "~/Scripts/libs/angular/ui-router.js",
                         "~/Scripts/libs/angular/ui-bootstrap-custom-0.9.0.js",
-                        "~/Scripts/libs/angular/ui-bootstrap-custom-tpls-0.9.0.js"
+                        "~/Scripts/libs/angular/ui-bootstrap-custom-tpls-0.9.0.js",
+                        "~/Scripts/libs/angular/angular-animate.js",
+                        "~/Scripts/libs/angular/toaster.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/ng-shared-services")
@@ -55,6 +57,7 @@ namespace Jobney.Casm.Web
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/datepicker3.css",
                       "~/Content/css/select2.css",
+                      "~/Content/css/toaster.css",
                       "~/Content/css/select2-bootstrap.css",
                       "~/Content/css/font-awesome.css"
                     ));
