@@ -120,8 +120,13 @@
             }
 
             function save() {
-                $scope.$apply(function() {
-                    toaster.pop('success', "Location Updated", 'NOT YET IMPLEMENTED', 3000, 'trustedHtml');
+                $scope.$apply(function () {
+                    toaster.pop('success', "Location Updated", 'NEIL, Do this!', 3000, 'trustedHtml');
+
+                    // Not implemented
+                    //TripService.updateWaypoint($scope.location).then(function (response) {
+                    //    // actually show message here    
+                    //});
                 });
             }
 
