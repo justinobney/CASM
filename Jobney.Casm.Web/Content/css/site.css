@@ -77,17 +77,21 @@ input[type="checkbox"].input-validation-error {
 
 /* #region Trip Info Page */
 
-.trip-remove {
+.trip-waypoints .trip-remove {
     display: none;
 }
 
-tr:hover .trip-remove {
+.trip-waypoints tr:hover .trip-remove {
     display: initial;
 }
 
 .waypoint-times .form-control {
     width: 150px;
     display: inline;
+}
+
+.trip-waypoints tr td {
+    padding-top: 8px !important;
 }
 
 /*#endregion */

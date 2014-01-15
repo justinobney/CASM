@@ -70,8 +70,8 @@
                     </div>
                     <!-- <div class="panel-body"></div> -->
                     <table class="table">
-                        <tbody ui-sortable="sortableOptions" ng-model="trip.waypoints">
-                            <tr ng-repeat="location in trip.waypoints" ng-controller="TripWaypointCtrl">
+                        <tbody ui-sortable="sortableOptions" ng-model="trip.waypoints" class="trip-waypoints">
+                            <tr ng-repeat="location in trip.waypoints" ng-controller="TripWaypointCtrl" ng-class="{'open': open}">
                                 <td width="50px" ng-click="open = !open" class="clickable">
                                     {{location.order}}
                                     <i class="fa" ng-class="{'fa-chevron-right':!open || !min, 'fa-chevron-down':open && min}"></i>
