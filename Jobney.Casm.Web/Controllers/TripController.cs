@@ -96,6 +96,7 @@ namespace Jobney.Casm.Web.Controllers
                     entity.Passengers.Add(
                         new WaypointPassenger
                         {
+                            TripId = waypoint.TripId,
                             PassengerId = passengerId
                         });
                 }
