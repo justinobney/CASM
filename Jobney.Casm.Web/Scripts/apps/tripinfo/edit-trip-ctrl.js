@@ -94,4 +94,30 @@
             }
         }
     ]);
+
+    app.controller('TripWaypointCtrl', ['$scope', 'TripService',
+        function ($scope, TripService) {
+
+            activate();
+
+            function activate() {
+                save = _.debounce(save, 2000);
+                setupWatches();
+            }
+
+            function setupWatches() {
+                $scope.$watch('location', handleWaypointUpdate, true);
+            }
+
+            function handleWaypointUpdate(current, previous, scope) {
+                if(previous && current != previous)
+                    save(arguments);
+            }
+
+            function save() {
+                console.log('location updated: ', $scope.location);
+            }
+
+        }
+    ]);
 })()
