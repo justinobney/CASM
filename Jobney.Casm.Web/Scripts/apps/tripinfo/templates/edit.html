@@ -81,7 +81,48 @@
                                         {{location.city}}, {{location.state}}
                                     </div>
                                     <div data-ng-show="open">
-                                        <pre>{{location | json}}</pre>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addPassenger(location)">
+                                                    <div class="form-group">
+                                                        <label>Passengers</label>
+                                                        <select multiple="" ui-select2="select2Options" ng-model="location.newPassenger" data-placeholder="Add Passengers" class="form-control">
+                                                            <option ng-repeat="p in passengerList" value="{{p.id}}">{{p.text}}</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <li ng-repeat="passenger in location.passengers">
+                                                        <a href>
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                        {{passenger}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-6">
+                                                <form ng-submit="addRequest(location)">
+                                                    <div class="form-group">
+                                                        <label>Special Requests</label>
+                                                        <input type="text" ng-model="location.newRequest" class="form-control" placeholder="Add Request">
+                                                    </div>
+                                                </form>
+                                                <ul>
+                                                    <li ng-repeat="request in location.specialRequests">
+                                                        <input type="checkbox" ng-model="request.complete">{{request.text}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea ng-model="location.notes" rows="4" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </td>
                                 <td width="75px">
