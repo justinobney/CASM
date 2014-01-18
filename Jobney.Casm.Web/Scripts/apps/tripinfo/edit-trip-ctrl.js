@@ -23,8 +23,12 @@
             };
 
             $scope.deleteTrip = function () {
-                if (confirm('are you sure')) {
-                    toaster.pop('error', 'You almost deleted that!', 'Chill', 4000);
+                if (confirm('are you sure')) { //TODO: Use a modal confirm that has a promise here.
+                    TripService.remove($scope.trip.id).then(function(response) {
+                        if (response.success) {
+                            window.location = response.url;
+                        }
+                    });
                 }
             };
 

@@ -45,6 +45,14 @@
                 });
             };
 
+            service.remove = function (tripId) {
+                var url = ServiceRoutes.trip.remove;
+
+                return $http.post(url, { id: tripId }).then(function (response) {
+                    return (response.data);
+                });
+            };
+
             return service;
         }
     ]);

@@ -146,7 +146,17 @@ namespace Jobney.Casm.Web.Controllers
             var wp = Mapper.Map<Waypoint>(waypoint);
             waypointRepository.InsertOrUpdate(wp);
             waypointRepository.CommitChanges();
-            return Json(wp);
+            return JsonResult(wp);
+        }
+
+        [HttpPost]
+        public ActionResult Remove(int id)
+        {
+            var trip = tripRepository.Query().FirstOrDefault(t => t.Id == id);
+            tripRepository.Remove(trip);
+            tripRepository.CommitChanges();
+
+            return JsonResult(new { Success = true, Url = Url.Action("Index", "Home") });
         }
 
         private Waypoint QuickAddDepartingWaypoint(TripQuickAddViewModel vm)
