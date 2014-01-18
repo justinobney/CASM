@@ -80,7 +80,7 @@
                                     <div>
                                         {{location.city}}, {{location.state}}
                                         <div class="pull-right waypoint-times">
-                                            <div ng-show="location.arriving && !$first" class="text-right">
+                                            <div ng-show="location.arriving && !$first || open && !$first" class="text-right">
                                                 <strong>Arriving:</strong>
                                                 <span ng-hide="open">{{location.arriving | date:'short'}}</span>
                                                 <input ng-show="open" type="text" ng-model="location.arriving" class="form-control" />
@@ -134,7 +134,7 @@
                                     </div>
                                     <div>
                                         <div class="pull-right waypoint-times">
-                                            <div ng-show="location.departing && !$last" class="text-right">
+                                            <div ng-show="location.departing && !$last || open && !$last" class="text-right">
                                                 <strong>Departing:</strong>
                                                 <span ng-hide="open">{{location.departing | date:'short'}}</span>
                                                 <input ng-show="open" type="text" ng-model="location.departing" class="form-control" />

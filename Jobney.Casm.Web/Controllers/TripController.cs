@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
 using Jobney.Casm.Domain.Entities;
 using Jobney.Casm.Services;
 using Jobney.Casm.Web.Models;
@@ -15,23 +16,20 @@ namespace Jobney.Casm.Web.Controllers
     public class TripController : BaseController
     {
         private readonly IRepository<Trip> tripRepository;
-        private readonly IRepository<Waypoint> waypointRepository; 
-        private readonly IRepository<Airplane> airplaneRepository;
-        private readonly IRepository<Passenger> passengerRepository;
+        private readonly IRepository<Waypoint> waypointRepository;
+        private readonly ListDataService listData;
         private readonly IRepository<Settings> settingsRepository;
         private readonly TripService tripService;
 
         public TripController(IRepository<Trip> tripRepository,
                               IRepository<Waypoint> waypointRepository,
-                              IRepository<Airplane> airplaneRepository,
-                              IRepository<Passenger> passengerRepository,
+                              ListDataService listData,
                               IRepository<Settings> settingsRepository,
                               TripService tripService)
         {
             this.tripRepository = tripRepository;
             this.waypointRepository = waypointRepository;
-            this.airplaneRepository = airplaneRepository;
-            this.passengerRepository = passengerRepository;
+            this.listData = listData;
             this.settingsRepository = settingsRepository;
             this.tripService = tripService;
         }
@@ -40,8 +38,8 @@ namespace Jobney.Casm.Web.Controllers
         {
             return new TripInfoDataBootstrapper
             {
-                Airplanes = JsonConvert.SerializeObject(airplaneRepository.Query().ToList(), jsonSettings),
-                Passengers = JsonConvert.SerializeObject(passengerRepository.Query().ToList(), jsonSettings)
+                Airplanes = JsonConvert.SerializeObject(listData.Airplanes.Query().ToList(), jsonSettings),
+                Passengers = JsonConvert.SerializeObject(listData.Passengers.Query().ToList(), jsonSettings)
             };
         }
         
@@ -153,7 +151,7 @@ namespace Jobney.Casm.Web.Controllers
                 Departing = vm.DepartingDate
             };
         }
-        
+
         private Waypoint QuickAddArrivingWaypoint(TripQuickAddViewModel vm)
         {
             return new Waypoint
