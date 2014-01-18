@@ -22,6 +22,12 @@
                 });
             };
 
+            $scope.deleteTrip = function () {
+                if (confirm('are you sure')) {
+                    toaster.pop('error', 'You almost deleted that!', 'Chill', 4000);
+                }
+            };
+
             activate();
 
             function activate() {
@@ -102,7 +108,6 @@
     app.controller('TripWaypointCtrl', [
         '$scope', 'TripService', 'toaster',
         function($scope, TripService, toaster) {
-
             activate();
 
             function activate() {
