@@ -37,6 +37,14 @@
                 });
             };
 
+            service.updateWaypoint = function(waypoint) {
+                var url = ServiceRoutes.trip.updateWaypoint;
+
+                return $http.post(url, waypoint).then(function (response) {
+                    return (response.data);
+                });
+            };
+
             return service;
         }
     ]);

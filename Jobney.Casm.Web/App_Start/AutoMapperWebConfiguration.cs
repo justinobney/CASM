@@ -1,5 +1,6 @@
 using AutoMapper;
 using Jobney.Casm.Domain.Entities;
+using Jobney.Casm.Web.ViewModels;
 using Jobney.Casm.Web.ViewModels.Manage;
 
 namespace Jobney.Casm.Web
@@ -10,6 +11,7 @@ namespace Jobney.Casm.Web
         {
             Mapper.CreateMap<Pilot, ManagePilotViewModel>().ReverseMap();
             Mapper.CreateMap<Passenger, ManagePassengerViewModel>().ReverseMap();
+            Mapper.CreateMap<Waypoint, WaypointViewModel>().ReverseMap();
         }
     }
 }

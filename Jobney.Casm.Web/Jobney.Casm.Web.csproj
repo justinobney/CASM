@@ -215,6 +215,7 @@
     <Compile Include="ViewModels\TripCalendarViewModel.cs" />
     <Compile Include="ViewModels\TripQuickAddViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="ViewModels\WaypointViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
